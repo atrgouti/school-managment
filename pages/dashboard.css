@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(19, 19, 19);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+nav ul{
+    list-style: none;
+    padding-right: 5%;
+}
+nav h1{
+    padding-left: 5%;
+}
+
+
+
+
+.container{
+    height: 90vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 0.5fr 2fr 1fr 1fr 4fr;
+    grid-template-areas: 
+    "humbrger nav nav nav nav"
+    "side student teacher parent earning"
+    "side calinder calinder facebook twitter"
+    "side calinder calinder google linkdlen"
+    "side calinder calinder notification notification";
+    /* gap: 17px; */
+    background-color: rgb(228, 228, 228);
+}
+.humberger{
+    grid-area: humbrger;
+    background-color: aqua;
+}
+.side{
+    grid-area: side;
+    background-color: brown;
+    grid-row-gap: 10%;
+}
+.navbar{
+    grid-area: nav;
+    background-color: violet;
+}
+.students{
+    grid-area: student;
+    background-color: pink;
+}
+.teachers{
+    grid-area: teacher;
+    background-color: tomato;
+}
+.parents{
+    grid-area: parent;
+    background-color: skyblue;
+}
+.totalearnings{
+    grid-area: earning;
+    background-color: salmon;
+}
+.eventcalender{
+    grid-area: calinder;
+    background-color: purple;
+}
+.facebook{
+    grid-area: facebook;
+    background-color: tan;
+}
+.twitter{
+    grid-area: twitter;
+    background-color: cornflowerblue;
+}
+.google{
+    grid-area: google;
+    background-color: deeppink;
+}
+.linkdlen{
+    grid-area: linkdlen;
+    background-color: indigo;
+}
+.noticeboard{
+    grid-area: notification;
+    background-color: darkseagreen;
+}
