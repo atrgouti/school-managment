@@ -3,6 +3,27 @@
 * {
   box-sizing: border-box;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(204, 204, 204); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(97, 97, 97); 
+}
+
 
 body {
   font-family: 'Muli', sans-serif;
@@ -200,6 +221,7 @@ body {
 }
 .container .home p{
     padding-left: 20px;
+    font-weight: bold;
 }
 
 
@@ -373,6 +395,9 @@ body {
 
 
 /* working on calindar */
+.calinder{
+  overflow-y: auto;
+}
 .container .calinder .recent{
   padding-left: 20px;
   font-weight: bold;
@@ -385,6 +410,14 @@ body {
 .calinder .noti{
   padding-bottom: 20px;
 }
+.calinder .noti.test{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calinder .noti.test .exact{
+  padding-right: 20px;
+}
 .calinder .noti p{
   font-size: 12px;
   padding-left: 20px;
@@ -396,7 +429,4 @@ body {
   color: purple;
   font-weight: bold;
   letter-spacing: 1px;
-}
-.calinder .noti .message{
-  width: 90%;
 }
