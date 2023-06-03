@@ -31,7 +31,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: fit-content;
   margin: 0;
   padding: 0;
   background-color: rgb(228, 228, 228);
@@ -143,6 +143,8 @@ body {
 /* working on the grid system */
 .container{
     height: 95%;
+    margin-top: 38px;
+    margin-bottom: 30px;
     width: 90%;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr;
@@ -340,6 +342,7 @@ body {
   background-color: #0058cb;
   color: white;
   cursor: pointer;
+  border-radius: 10px;
 }
 .container .social span{
   display: flex;
@@ -370,6 +373,8 @@ body {
   background-color: #1D9BF0 ;
   color: white;
   cursor: pointer;
+  border-radius: 10px;
+
 }
 
 /* working on google */
@@ -380,6 +385,7 @@ body {
   background-color: #DB4437 ;
   color: white;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 
@@ -391,12 +397,15 @@ body {
   background-color: #0e76a8 ;
   color: white;
   cursor: pointer;
+  border-radius: 10px;
+
 }
 
 
 /* working on calindar */
 .calinder{
   overflow-y: auto;
+  height: 490px;
 }
 .container .calinder .recent{
   padding-left: 20px;
@@ -429,4 +438,100 @@ body {
   color: purple;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+
+/* working on the board  */
+.container .board .recent{
+  padding-left: 20px;
+  font-weight: bold;
+}
+.container .board .line2{
+  width: 100%;
+  height: 2px;
+  background-color: rgb(228, 228, 228);
+}
+
+
+
+
+/* start working on media quiries */
+
+@media screen and (max-width: 1100px){
+  .container{
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 0.5fr 1fr 1fr 4fr 1fr 1fr 3fr;
+    grid-template-areas: 
+    "home home"
+    "students teachers"
+    "parents totalearnings"
+    "calinder calinder"
+    "facebook twitter"
+    "google linkdlen"
+    "board board"
+    ;
+  }
+  /* media query for students */
+  .container .students span p{
+    font-size: 12px;
+  }
+  .container .students span img{
+    height: 35px;
+  }
+  .container .students h1{
+    font-size: 25px;
+  }
+
+  /* media query for teachers  */
+  .container .teachers span p{
+    font-size: 12px;
+  }
+  .container .teachers span img{
+    height: 45px;
+  }
+  .container .teachers h1{
+    font-size: 25px;
+  }
+
+
+  /* media query for parents  */
+  .container .parents span p{
+    font-size: 12px;
+  }
+  .container .parents span img{
+    height: 35px;
+  }
+  .container .parents h1{
+    font-size: 25px;
+  }
+
+  /* media query for earning  */
+  .container .totalearnings span p{
+    font-size: 12px;
+  }
+  .container .totalearnings span img{
+    height: 35px;
+  }
+  .container .totalearnings h1{
+    font-size: 25px;
+  }
+
+
+  /* working on the social links  */
+  .container .social span p{
+    margin: 0;
+    font-size: 13px;
+  }
+  .container .social h1{
+    font-size: 20px;
+  }
+  .container .social img{
+    height: 35px;
+    padding-bottom: 10px;
+  }
+  .container .social .line{
+    height: 30%;
+    width: 1px;
+    background-color: rgb(208, 208, 208);
+  } 
 }
