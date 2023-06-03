@@ -1,34 +1,194 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
 }
-nav{
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(228, 228, 228);
+}
+
+.text {
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 200px;
+}
+
+.nav-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.open-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav.visible {
+  transform: translateX(0);
+}
+
+.nav-black {
+  background-color: rgb(0, 0, 186);
+  width: 60%;
+  max-width: 480px;
+  min-width: 320px;
+  transition-delay: 0.4s;
+}
+
+.nav-black.visible {
+  transition-delay: 0s;
+}
+
+.nav-red {
+  background-color: rgb(153, 153, 153);
+  width: 95%;
+  transition-delay: 0.2s;
+}
+
+.nav-red.visible {
+  transition-delay: 0.2s;
+}
+
+.nav-white {
+  background-color: #fff;
+  width: 95%;
+  padding: 40px;
+  position: relative;
+  transition-delay: 0s;
+}
+
+.nav-white.visible {
+  transition-delay: 0.4s;
+}
+
+.close-btn {
+  opacity: 0.3;
+  position: absolute;
+  top: 40px;
+  right: 30px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  margin: 20px 0;
+}
+
+.list li a {
+  color: rgb(34, 31, 31);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.list ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+
+
+
+
+
+
+
+/* working on the grid system */
+.container{
+    height: 95%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 2fr;
+    grid-template-areas: 
+    "home home home home"
+    "students teachers parents totalearnings"
+    "calinder calinder facebook twitter"
+    "calinder calinder google linkdlen"
+    "calinder calinder board board";
+    gap: 10px;
+
+}
+.container .home{
+    grid-area: home;
+    background-color: white;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 10%;
-    justify-content: start;
     align-items: center;
-    background-color: black;
 }
-nav img{
-    height: 50px;
+.container .students{
+    background-color: white;
+    grid-area: students;
 }
-nav span{
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container .teachers{
+    grid-area: teachers;
+    background-color: white;
 }
-nav span img{
-    height: 30px;
-    margin: 10px;
+.container .parents{
+    grid-area: parents;
+    background-color: white;
 }
-nav ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 50%;
+.container .totalearnings{
+    grid-area: totalearnings;
+    background-color: white;
+}
+.container .calinder{
+    grid-area: calinder;
+    background-color: white;
+}
+.container .facebook{
+    grid-area: facebook;
+    background-color: white;
+}
+.container .twitter{
+    grid-area: twitter;
+    background-color: white;
+}
+.container .google{
+    background-color: white;
+    grid-area: google;
+}
+.container .linkdlen{
+    grid-area: linkdlen;
+    background-color: white;
+}
+.container .board{
+    grid-area: board;
+    background-color: white;
+}
+
+
+
+
+
+
+
+/* now custumizing each div alone */
+.container .home p{
+    padding-left: 20px;
 }
