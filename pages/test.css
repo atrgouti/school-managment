@@ -125,7 +125,7 @@ body {
     width: 90%;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr;
-    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 2fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 3fr;
     grid-template-areas: 
     "home home home home"
     "students teachers parents totalearnings"
@@ -189,6 +189,184 @@ body {
 
 
 /* now custumizing each div alone */
+.container .home{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .home img{
+  height: 40px;
+  padding-right: 20px;
+}
 .container .home p{
     padding-left: 20px;
+}
+
+
+
+/* working on the students show div */
+.container .students{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .students span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .students span p{
+  margin: 0;
+}
+.container .students img{
+  height: 30px;
+}
+.container .students .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+}
+
+
+/* working on the teachers show div */
+
+.container .teachers{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .teachers span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .teachers span p{
+  margin: 0;
+}
+.container .teachers img{
+  height: 50px;
+}
+.container .teachers .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+} 
+
+
+
+/* working on the parents show div */
+
+.container .parents{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .parents span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .parents span p{
+  margin: 0;
+}
+.container .parents img{
+  height: 50px;
+}
+.container .parents .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+} 
+
+
+
+
+/* working on the money show div */
+
+.container .totalearnings{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .totalearnings span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .totalearnings span p{
+  margin: 0;
+}
+.container .totalearnings img{
+  height: 50px;
+}
+.container .totalearnings .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+} 
+
+
+/* working on facebook */
+.container .facebook{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0058cb;
+  color: white;
+  cursor: pointer;
+}
+.container .social span{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .social span p{
+  margin: 0;
+  font-size: 12px;
+}
+.container .social img{
+  height: 40px;
+  padding-bottom: 10px;
+}
+.container .social .line{
+  height: 30%;
+  width: 1px;
+  background-color: rgb(208, 208, 208);
+} 
+
+
+/* working on twitter */
+.container .twitter{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1D9BF0 ;
+  color: white;
+  cursor: pointer;
+}
+
+/* working on google */
+.container .google{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #DB4437 ;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* working on linkden */
+.container .linkdlen{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0e76a8 ;
+  color: white;
+  cursor: pointer;
 }
