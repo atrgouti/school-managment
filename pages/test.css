@@ -146,6 +146,7 @@ body {
     margin-top: 38px;
     margin-bottom: 30px;
     width: 90%;
+    max-width: 1500px;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr;
     grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 3fr;
@@ -405,7 +406,7 @@ body {
 /* working on calindar */
 .calinder{
   overflow-y: auto;
-  height: 490px;
+  max-height: 490px;
 }
 .container .calinder .recent{
   padding-left: 20px;
@@ -442,6 +443,10 @@ body {
 
 
 /* working on the board  */
+.board{
+  overflow-y: auto;
+  height: 235px;
+}
 .container .board .recent{
   padding-left: 20px;
   font-weight: bold;
@@ -451,9 +456,22 @@ body {
   height: 2px;
   background-color: rgb(228, 228, 228);
 }
-
-
-
+.container .board span{
+  display: flex;
+  justify-content: space-between;
+}
+.container .board span .addmeeting{
+  padding-right: 20px;
+  text-decoration: none;
+  color: #0e76a8;
+}
+.bold{
+  color: #DB4437;
+  display: inline;
+}
+.board .meeting{
+  padding-left: 20px;
+}
 
 /* start working on media quiries */
 
@@ -534,4 +552,8 @@ body {
     width: 1px;
     background-color: rgb(208, 208, 208);
   } 
+  /* working on the board */
+  .board{
+    height: fit-content;
+  }
 }
