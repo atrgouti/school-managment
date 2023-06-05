@@ -22,15 +22,6 @@ if(!isset($_SESSION['username'])){
     <i class="fas fa-bars"></i>
   </button>
 
-  
-
-
- 
-
-  
-  
-  
-
   <div class="nav nav-black">
     <div class="nav nav-red">
       <div class="nav nav-white">
@@ -64,6 +55,37 @@ if(!isset($_SESSION['username'])){
       </div>
     </div>
   </div>
+
+
+  <div class="home">
+    <p>Home - Admin</p>
+    <img src="../photos/ofppt.png" alt="">
+  </div>
+  <main>
+      <header>
+        <p class="all">All Teachers</p>
+        <hr>
+      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Photo</th>
+            <td>Photo</td>
+            <td>Name</td>
+            <td>Gender</td>
+            <td>Subject</td>
+            <td>Class</td>
+            <td>Section</td>
+            <td>Adress</td>
+            <td>Date of birth</td>
+            <td>Mobile num</td>
+            <td>E-Mail</td>
+            <td>Action</td>
+          </tr>
+        </thead>
+      </table>
+  </main>
 
 </div>
   <script src="teacher.js"></script>
