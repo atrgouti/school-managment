@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="teachers.css" />
   <title>Netflix Mobile Navigation</title>
 </head>
 
@@ -188,7 +188,7 @@ if(!isset($_SESSION['username'])){
         </button>
 
         <img
-          src="./photos/ofppt.png"
+          src="../photos/ofppt.png"
           alt="Logo" class="logo">
 
         <ul class="list">
@@ -215,7 +215,7 @@ if(!isset($_SESSION['username'])){
   </div>
 
 </div>
-  <script src="script.js"></script>
+  <script src="teacher.js"></script>
 </body>
 
 </html>

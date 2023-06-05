@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(204, 204, 204); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(97, 97, 97); 
+}
+
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(228, 228, 228);
+}
+
+.text {
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 200px;
+}
+
+.nav-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.open-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav.visible {
+  transform: translateX(0);
+}
+
+.nav-black {
+  background-color: rgb(0, 0, 186);
+  width: 60%;
+  max-width: 480px;
+  min-width: 320px;
+  transition-delay: 0.4s;
+}
+
+.nav-black.visible {
+  transition-delay: 0s;
+}
+
+.nav-red {
+  background-color: rgb(153, 153, 153);
+  width: 95%;
+  transition-delay: 0.2s;
+}
+
+.nav-red.visible {
+  transition-delay: 0.2s;
+}
+
+.nav-white {
+  background-color: #fff;
+  width: 95%;
+  padding: 40px;
+  position: relative;
+  transition-delay: 0s;
+}
+
+.nav-white.visible {
+  transition-delay: 0.4s;
+}
+
+.close-btn {
+  opacity: 0.3;
+  position: absolute;
+  top: 40px;
+  right: 30px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  margin: 20px 0;
+}
+
+.list li a {
+  color: rgb(34, 31, 31);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.list ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+
+
+
+
+
+
+
+/* working on the grid system */
+.container{
+    height: 95%;
+    margin-top: 38px;
+    margin-bottom: 30px;
+    width: 90%;
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 3fr;
+    grid-template-areas: 
+    "home home home home"
+    "students teachers parents totalearnings"
+    "calinder calinder facebook twitter"
+    "calinder calinder google linkdlen"
+    "calinder calinder board board";
+    gap: 10px;
+
+}
+.container .home{
+    grid-area: home;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.container .students{
+    background-color: white;
+    grid-area: students;
+}
+.container .teachers{
+    grid-area: teachers;
+    background-color: white;
+}
+.container .parents{
+    grid-area: parents;
+    background-color: white;
+}
+.container .totalearnings{
+    grid-area: totalearnings;
+    background-color: white;
+}
+.container .calinder{
+    grid-area: calinder;
+    background-color: white;
+}
+.container .facebook{
+    grid-area: facebook;
+    background-color: white;
+}
+.container .twitter{
+    grid-area: twitter;
+    background-color: white;
+}
+.container .google{
+    background-color: white;
+    grid-area: google;
+}
+.container .linkdlen{
+    grid-area: linkdlen;
+    background-color: white;
+}
+.container .board{
+    grid-area: board;
+    background-color: white;
+}
+
+
+
+
+
+
+
+/* now custumizing each div alone */
+.container .home{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .home img{
+  height: 40px;
+  padding-right: 20px;
+}
+.container .home p{
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+
+
+/* working on the students show div */
+.container .students{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .students span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .students span p{
+  margin: 0;
+}
+.container .students img{
+  height: 30px;
+}
+.container .students .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+}
+
+
+/* working on the teachers show div */
+
+.container .teachers{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .teachers span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .teachers span p{
+  margin: 0;
+}
+.container .teachers img{
+  height: 50px;
+}
+.container .teachers .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+} 
+
+
+
+/* working on the parents show div */
+
+.container .parents{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .parents span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .parents span p{
+  margin: 0;
+}
+.container .parents img{
+  height: 50px;
+}
+.container .parents .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+} 
+
+
+
+
+/* working on the money show div */
+
+.container .totalearnings{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.container .totalearnings span{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .totalearnings span p{
+  margin: 0;
+}
+.container .totalearnings img{
+  height: 50px;
+}
+.container .totalearnings .line{
+  height: 50%;
+  width: 2px;
+  background-color: rgb(228, 228, 228);
+} 
+
+
+/* working on facebook */
+.container .facebook{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0058cb;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.container .social span{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .social span p{
+  margin: 0;
+  font-size: 12px;
+}
+.container .social img{
+  height: 40px;
+  padding-bottom: 10px;
+}
+.container .social .line{
+  height: 30%;
+  width: 1px;
+  background-color: rgb(208, 208, 208);
+} 
+
+
+/* working on twitter */
+.container .twitter{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1D9BF0 ;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+
+/* working on google */
+.container .google{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #DB4437 ;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+
+/* working on linkden */
+.container .linkdlen{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0e76a8 ;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+
+
+/* working on calindar */
+.calinder{
+  overflow-y: auto;
+  max-height: 490px;
+}
+.container .calinder .recent{
+  padding-left: 20px;
+  font-weight: bold;
+}
+.container .calinder .line2{
+  width: 100%;
+  height: 2px;
+  background-color: rgb(228, 228, 228);
+}
+.calinder .noti{
+  padding-bottom: 20px;
+}
+.calinder .noti.test{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calinder .noti.test .exact{
+  padding-right: 20px;
+}
+.calinder .noti p{
+  font-size: 12px;
+  padding-left: 20px;
+}
+.calinder .noti .date{
+  letter-spacing: 2px;
+}
+.calinder .noti .teacher{
+  color: purple;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+/* working on the board  */
+.board{
+  overflow-y: auto;
+  height: 235px;
+}
+.container .board .recent{
+  padding-left: 20px;
+  font-weight: bold;
+}
+.container .board .line2{
+  width: 100%;
+  height: 2px;
+  background-color: rgb(228, 228, 228);
+}
+.container .board span{
+  display: flex;
+  justify-content: space-between;
+}
+.container .board span .addmeeting{
+  padding-right: 20px;
+  text-decoration: none;
+  color: #0e76a8;
+}
+.bold{
+  color: #DB4437;
+  display: inline;
+}
+.board .meeting{
+  padding-left: 20px;
+}
+
+/* start working on media quiries */
+
+@media screen and (max-width: 1100px){
+  .container{
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 0.5fr 1fr 1fr 4fr 1fr 1fr 3fr;
+    grid-template-areas: 
+    "home home"
+    "students teachers"
+    "parents totalearnings"
+    "calinder calinder"
+    "facebook twitter"
+    "google linkdlen"
+    "board board"
+    ;
+  }
+  /* media query for students */
+  .container .students span p{
+    font-size: 12px;
+  }
+  .container .students span img{
+    height: 35px;
+  }
+  .container .students h1{
+    font-size: 25px;
+  }
+
+  /* media query for teachers  */
+  .container .teachers span p{
+    font-size: 12px;
+  }
+  .container .teachers span img{
+    height: 45px;
+  }
+  .container .teachers h1{
+    font-size: 25px;
+  }
+
+
+  /* media query for parents  */
+  .container .parents span p{
+    font-size: 12px;
+  }
+  .container .parents span img{
+    height: 35px;
+  }
+  .container .parents h1{
+    font-size: 25px;
+  }
+
+  /* media query for earning  */
+  .container .totalearnings span p{
+    font-size: 12px;
+  }
+  .container .totalearnings span img{
+    height: 35px;
+  }
+  .container .totalearnings h1{
+    font-size: 25px;
+  }
+
+
+  /* working on the social links  */
+  .container .social span p{
+    margin: 0;
+    font-size: 13px;
+  }
+  .container .social h1{
+    font-size: 20px;
+  }
+  .container .social img{
+    height: 35px;
+    padding-bottom: 10px;
+  }
+  .container .social .line{
+    height: 30%;
+    width: 1px;
+    background-color: rgb(208, 208, 208);
+  } 
+  /* working on the board */
+  .board{
+    height: fit-content;
+  }
+}
