@@ -162,7 +162,6 @@ body {
 
 main{
   width: 100%;
-  height: 100px;
   background-color: white;
 }
 main .all{
@@ -172,6 +171,28 @@ main .all{
 }
 main table{
   width: 100%;
+}
+main thead{
+  border-bottom: 1px solid rgb(169, 169, 169);
+}
+main tbody td{
+  text-align: center;
+}
+main tr th{
+  padding-bottom: 10px;
+}
+main tr td{
+  padding: 10px;
+}
+main tr td img{
+  height: 40px;
+}
+main tr td button{
+  background-color: transparent;
+  border: none;
+}
+main tr td button img{
+  height: 20px;
 }
 main table tr{
   padding: 10px 0px;

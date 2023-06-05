@@ -34,7 +34,7 @@ if(!isset($_SESSION['username'])){
           alt="Logo" class="logo">
 
         <ul class="list">
-          <li><a href="#">Home</a></li>
+          <li><a href="../dashboard.php">Home</a></li>
           <li><a href="../teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
@@ -66,24 +66,97 @@ if(!isset($_SESSION['username'])){
         <p class="all">All Teachers</p>
         <hr>
       </header>
-      <table>
+      <table  style='border-collapse: collapse' class="table">
         <thead>
           <tr>
             <th>Id</th>
             <th>Photo</th>
-            <td>Photo</td>
-            <td>Name</td>
-            <td>Gender</td>
-            <td>Subject</td>
-            <td>Class</td>
-            <td>Section</td>
-            <td>Adress</td>
-            <td>Date of birth</td>
-            <td>Mobile num</td>
-            <td>E-Mail</td>
-            <td>Action</td>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Subject</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Adress</th>
+            <th>Date of birth</th>
+            <th>Mobile number</th>
+            <th>E-Mail</th>
+            <th>Action</th>
           </tr>
         </thead>
+        <tbody class='tbody'>
+          <tr>
+            <td>1</td>
+            <td><img src="../photos/ostad3.jpg" alt=""></td>
+            <td>Bilal</td>
+            <td>Male</td>
+            <td>Math</td>
+            <td>A</td>
+            <td>C</td>
+            <td>Hay El Amal</td>
+            <td>2005/5/15</td>
+            <td>0614598765</td>
+            <td>btrgouti@gmail.com</td>
+            <td>
+              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><img src="../photos/ostada.jpg" alt=""></td>
+            <td>Aya</td>
+            <td>famale</td>
+            <td>Arabe</td>
+            <td>D</td>
+            <td>B</td>
+            <td>Hay El Saada</td>
+            <td>2003/7/20</td>
+            <td>0679854236</td>
+            <td>hanan2876@gmail.com</td>
+            <td>
+              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><img src="../photos/ostada2.jpg" alt=""></td>
+            <td>Aya</td>
+            <td>famale</td>
+            <td>Arabe</td>
+            <td>D</td>
+            <td>B</td>
+            <td>Hay El Saada</td>
+            <td>2003/7/20</td>
+            <td>0679854236</td>
+            <td>hanan2876@gmail.com</td>
+            <td>
+              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><img src="../photos/ostad3.jpg" alt=""></td>
+            <td>Bilal</td>
+            <td>Male</td>
+            <td>Math</td>
+            <td>A</td>
+            <td>C</td>
+            <td>Hay El Amal</td>
+            <td>2005/5/15</td>
+            <td>0614598765</td>
+            <td>btrgouti@gmail.com</td>
+            <td>
+              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
+              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
+            </td>
+          </tr>
+        </tbody>
       </table>
   </main>
 
