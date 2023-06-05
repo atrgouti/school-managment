@@ -193,7 +193,7 @@ if(!isset($_SESSION['username'])){
 
         <ul class="list">
           <li><a href="#">Home</a></li>
-          <li><a href="../teachers/teachers.php">Teachers</a></li>
+          <li><a href="./teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
               <li><a href="">Add new teacher</a></li>
