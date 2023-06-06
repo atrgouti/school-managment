@@ -199,7 +199,7 @@ if(!isset($_SESSION['username'])){
               <li><a href="./teachers/addTeacher.php">Add new teacher</a></li>
             </ul>
           </li>
-          <li><a href="">Students</a></li>
+          <li><a href="./students/students.php">Students</a></li>
           <li>
             <ul>
               <li><a href="#">Add new Student</a></li>

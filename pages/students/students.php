@@ -38,13 +38,13 @@ if(!isset($_SESSION['username'])){
           <li><a href="../teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
-              <li><a href="">Add new teacher</a></li>
+              <li><a href="../teachers/addTeacher.php">Add new teacher</a></li>
             </ul>
           </li>
-          <li><a href="">Students</a></li>
+          <li><a href="students.php">Students</a></li>
           <li>
             <ul>
-              <li><a href="#">Add new Student</a></li>
+              <li><a href="addStudent.php">Add new Student</a></li>
             </ul>
           </li>
           <li><a href="#">Parents</a></li>
@@ -64,7 +64,7 @@ if(!isset($_SESSION['username'])){
   <main>
       <header>
         <p class="all">All Students</p>
-        <p><a href="addTeacher.php">Add a new Student</a></p>
+        <p><a href="addStudent.php">Add a new Student</a></p>
       </header>
       <hr>
       <table  style='border-collapse: collapse' class="table">
@@ -87,7 +87,7 @@ if(!isset($_SESSION['username'])){
         <tbody class='tbody'>
           <tr>
             <td>1</td>
-            <td><img src="../photos/ostad3.jpg" alt=""></td>
+            <td><img src="../photos/kid1.jpg" alt=""></td>
             <td>Bilal</td>
             <td>Male</td>
             <td>Ahmed</td>
@@ -105,7 +105,7 @@ if(!isset($_SESSION['username'])){
           </tr>
           <tr>
             <td>2</td>
-            <td><img src="../photos/ostada.jpg" alt=""></td>
+            <td><img src="../photos/kids2.jpg" alt=""></td>
             <td>Aya</td>
             <td>famale</td>
             <td>Khalid</td>
@@ -123,7 +123,7 @@ if(!isset($_SESSION['username'])){
           </tr>
           <tr>
             <td>3</td>
-            <td><img src="../photos/ostada2.jpg" alt=""></td>
+            <td><img src="../photos/kid1.jpg" alt=""></td>
             <td>Aya</td>
             <td>famale</td>
             <td>Ismail</td>
@@ -141,7 +141,7 @@ if(!isset($_SESSION['username'])){
           </tr>
           <tr>
             <td>4</td>
-            <td><img src="../photos/ostad3.jpg" alt=""></td>
+            <td><img src="../photos/kid3.jpg" alt=""></td>
             <td>Bilal</td>
             <td>Male</td>
             <td>Youssef</td>

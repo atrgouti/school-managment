@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="addTeacher.css" />
+  <link rel="stylesheet" href="addStudent.css" />
   <title>Netflix Mobile Navigation</title>
 </head>
 <body>
@@ -32,13 +32,13 @@
           <li><a href="../teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
-              <li><a href="addTeacher.php">Add new teacher</a></li>
+              <li><a href="../teachers/addTeacher.php">Add new teacher</a></li>
             </ul>
           </li>
-          <li><a href="../students/students.php">Students</a></li>
+          <li><a href="students.php">Students</a></li>
           <li>
             <ul>
-              <li><a href="../students/addStudent.php">Add new Student</a></li>
+              <li><a href="addStudent.php">Add new Student</a></li>
             </ul>
           </li>
           <li><a href="#">Parents</a></li>
@@ -57,11 +57,12 @@
   </div>
   <main>
         <header>
-        <p class="all">Add teacher form</p>
+        <p class="all">Add student form</p>
         <hr>
         </header>
         <div class="content">
-            <form action="" class="studentFrom">
+            <p style='margin-left:20px;'>Student information</p>
+            <form action="" class="studentFrom" id='form1'>
                 <div class="name feilds">
                     <label for="">First Name</label><br>
                     <input type="text">
@@ -100,25 +101,46 @@
                     <input type="text">
                 </div>
                 <div class="section feilds">
-                    <label for="">Subject</label><br>
-                    <select name="" id="">
-                      <option value="">Math</option>
-                      <option value="">Arabic</option>
-                      <option value="">Pysics</option>
-                      <option value="">SVT</option>
-                      <option value="">History</option>
-                    </select>
-                </div>
-                <div class="section feilds">
                     <label for="">Email</label><br>
                     <input type="email">
                 </div>
                 <div class="section feilds">
-                    <label for="">Phone number</label><br>
-                    <input type="number">
+                    <label for="">Upload teacher photo(150px * 150px)</label><br>
+                    <input type="file">
                 </div>
-                <div class="section feilds">
-                    <label for="">Adress</label><br>
+            </form> 
+            <p style='margin-left:20px;'>Parents information</p>
+            <form action=""  class="studentFrom" id='form2'>
+                <div class="name feilds">
+                    <label for="">Father Name</label><br>
+                    <input type="text">
+                </div>
+                <div class="last feilds">
+                    <label for="">Mother Name</label><br>
+                    <input type="text">
+                </div>
+                <div class="class feilds">
+                    <label for="">Father occupation</label><br>
+                    <input type="text">
+                </div>
+                <div class="class feilds">
+                    <label for="">Mother occupation</label><br>
+                    <input type="text">
+                </div>
+                <div class="class feilds">
+                    <label for="">Phone Number</label><br>
+                    <input type="text">
+                </div>
+                <div class="class feilds">
+                    <label for="">Nationality</label><br>
+                    <input type="text">
+                </div>
+                <div class="class feilds">
+                    <label for="">Present Adress</label><br>
+                    <input type="text">
+                </div>
+                <div class="class feilds">
+                    <label for="">Premenant Adress</label><br>
                     <input type="text">
                 </div>
                 <div class="section feilds">
@@ -126,18 +148,15 @@
                     <input type="file">
                 </div>
                 <div class="section feilds">
-                  <button type="submit" class="submit">Add teacher</button>
-                  <button type="reset" class="reset">Reset</button>
                 </div>
-            </form> 
+            </form>
+            <button onclick="submitForms()" class="submit">Add teacher</button>
+            <button onclick="resetAllInputs()"  type="reset" class="reset">Reset</button>
         </div>
-    </main>
-
+    </main> 
 </div>
 
-
-
-<script src="addTeacher.js"></script>
+<script src="addStudent.js"></script>
 
 </body>
 
