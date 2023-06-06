@@ -64,8 +64,9 @@ if(!isset($_SESSION['username'])){
   <main>
       <header>
         <p class="all">All Teachers</p>
-        <hr>
+        <p><a href="addTeacher.html">Add a new teacher</a></p>
       </header>
+      <hr>
       <table  style='border-collapse: collapse' class="table">
         <thead>
           <tr>
@@ -97,7 +98,7 @@ if(!isset($_SESSION['username'])){
             <td>0614598765</td>
             <td>btrgouti@gmail.com</td>
             <td>
-              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -115,7 +116,7 @@ if(!isset($_SESSION['username'])){
             <td>0679854236</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -133,7 +134,7 @@ if(!isset($_SESSION['username'])){
             <td>0679854236</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -151,7 +152,7 @@ if(!isset($_SESSION['username'])){
             <td>0614598765</td>
             <td>btrgouti@gmail.com</td>
             <td>
-              <button><a href="#"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>

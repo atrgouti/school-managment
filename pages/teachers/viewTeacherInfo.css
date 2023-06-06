@@ -133,78 +133,59 @@ body {
   padding-left: 20px;
 }
 
-
+/* start working on the page  */
 .container{
-  width: 90%;
-  height: 95%;
-  margin-top: 38px;
-  margin-bottom: 30px;
-}
+    width: 90%;
+    height: 95%;
+    margin-top: 38px;
+    margin-bottom: 30px;
+  }
+  
+  .container .home{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 13px 0px;
+  }
+  .container .home img{
+    height: 40px;
+    padding-right: 20px;
+  }
+  .container .home p{
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+      padding-left: 20px;
+      font-weight: bold;
+  }
 
-.container .home{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 13px 0px;
-  margin-bottom: 20px;
-}
-.container .home img{
-  height: 40px;
-  padding-right: 20px;
-}
-.container .home p{
-  /* padding-top: 10px;
-  padding-bottom: 10px; */
+
+  main{
+    width: 100%;
+    background-color: white;
+  }
+  main .all{
+    padding-top: 20px;
     padding-left: 20px;
     font-weight: bold;
-}
+  }
 
 
-main{
-  width: 100%;
-  background-color: white;
-}
-main header{
+
+  /* working on the teacher infos page */
+
+main .infos {
+  margin: 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-main header a{
-  text-decoration: none;
-  color: blue;
-  margin-right: 20px;
+main .infos table{
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
-main .all{
-  padding-top: 20px;
-  padding-left: 20px;
-  font-weight: bold;
-}
-main table{
-  width: 100%;
-}
-main thead{
-  border-bottom: 1px solid rgb(169, 169, 169);
-}
-main tbody td{
-  text-align: center;
-}
-main tr th{
-  padding-bottom: 10px;
-}
-main tr td{
+main .infos table td{
   padding: 10px;
 }
-main tr td img{
-  height: 40px;
-}
-main tr td button{
-  background-color: transparent;
-  border: none;
-}
-main tr td button img{
-  height: 20px;
-}
-main table tr{
-  padding: 10px 0px;
+main .infos img{
+  height: 250px;
+  width: 250px;
 }
