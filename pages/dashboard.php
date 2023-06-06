@@ -192,11 +192,11 @@ if(!isset($_SESSION['username'])){
           alt="Logo" class="logo">
 
         <ul class="list">
-          <li><a href="#">Home</a></li>
+          <li><a href="dashboard.php">Home</a></li>
           <li><a href="./teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
-              <li><a href="">Add new teacher</a></li>
+              <li><a href="./teachers/addTeacher.php">Add new teacher</a></li>
             </ul>
           </li>
           <li><a href="">Students</a></li>

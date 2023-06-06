@@ -64,7 +64,7 @@ if(!isset($_SESSION['username'])){
   <main>
       <header>
         <p class="all">All Teachers</p>
-        <p><a href="addTeacher.html">Add a new teacher</a></p>
+        <p><a href="addTeacher.php">Add a new teacher</a></p>
       </header>
       <hr>
       <table  style='border-collapse: collapse' class="table">
