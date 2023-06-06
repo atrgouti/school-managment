@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="teachers.css" />
+  <link rel="stylesheet" href="students.css" />
   <title>Netflix Mobile Navigation</title>
 </head>
 <body>
@@ -38,10 +38,10 @@ if(!isset($_SESSION['username'])){
           <li><a href="../teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
-              <li><a href="addTeacher.php">Add new teacher</a></li>
+              <li><a href="">Add new teacher</a></li>
             </ul>
           </li>
-          <li><a href="../students/students.html">Students</a></li>
+          <li><a href="">Students</a></li>
           <li>
             <ul>
               <li><a href="#">Add new Student</a></li>
@@ -63,8 +63,8 @@ if(!isset($_SESSION['username'])){
   </div>
   <main>
       <header>
-        <p class="all">All Teachers</p>
-        <p><a href="addTeacher.php  ">Add a new teacher</a></p>
+        <p class="all">All Students</p>
+        <p><a href="addTeacher.php">Add a new Student</a></p>
       </header>
       <hr>
       <table  style='border-collapse: collapse' class="table">
@@ -74,7 +74,7 @@ if(!isset($_SESSION['username'])){
             <th>Photo</th>
             <th>Name</th>
             <th>Gender</th>
-            <th>Subject</th>
+            <th>Parents Name</th>
             <th>Class</th>
             <th>Section</th>
             <th>Adress</th>
@@ -90,7 +90,7 @@ if(!isset($_SESSION['username'])){
             <td><img src="../photos/ostad3.jpg" alt=""></td>
             <td>Bilal</td>
             <td>Male</td>
-            <td>Math</td>
+            <td>Ahmed</td>
             <td>A</td>
             <td>C</td>
             <td>Hay El Amal</td>
@@ -108,7 +108,7 @@ if(!isset($_SESSION['username'])){
             <td><img src="../photos/ostada.jpg" alt=""></td>
             <td>Aya</td>
             <td>famale</td>
-            <td>Arabe</td>
+            <td>Khalid</td>
             <td>D</td>
             <td>B</td>
             <td>Hay El Saada</td>
@@ -126,7 +126,7 @@ if(!isset($_SESSION['username'])){
             <td><img src="../photos/ostada2.jpg" alt=""></td>
             <td>Aya</td>
             <td>famale</td>
-            <td>Arabe</td>
+            <td>Ismail</td>
             <td>D</td>
             <td>B</td>
             <td>Hay El Saada</td>
@@ -144,7 +144,7 @@ if(!isset($_SESSION['username'])){
             <td><img src="../photos/ostad3.jpg" alt=""></td>
             <td>Bilal</td>
             <td>Male</td>
-            <td>Math</td>
+            <td>Youssef</td>
             <td>A</td>
             <td>C</td>
             <td>Hay El Amal</td>
@@ -162,7 +162,7 @@ if(!isset($_SESSION['username'])){
   </main>
 
 </div>
-  <script src="teacher.js"></script>
+  <script src="students.js"></script>
 </body>
 
 </html>
