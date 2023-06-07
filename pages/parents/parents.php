@@ -96,7 +96,7 @@ if(!isset($_SESSION['username'])){
             <td>Bilal</td>
             <td>0614598765</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewparent.php"><img src="../photos/eye.png" alt=""></a></button>
             </td>
           </tr>
         </tbody>
