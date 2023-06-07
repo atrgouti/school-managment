@@ -32,16 +32,16 @@
           <li><a href="../teachers/teachers.php">Teachers</a></li>
           <li>
             <ul>
-              <li><a href="">Add new teacher</a></li>
+              <li><a href="../teachers/addTeacher.php">Add new teacher</a></li>
             </ul>
           </li>
-          <li><a href="">Students</a></li>
+          <li><a href="../students/students.php">Students</a></li>
           <li>
             <ul>
-              <li><a href="#">Add new Student</a></li>
+              <li><a href="../students/students.php">Add new Student</a></li>
             </ul>
           </li>
-          <li><a href="#">Parents</a></li>
+          <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="#">Meetings</a></li>
           <li><a href="#">Recent</a></li> 
           <li><a href="../logout.php">Logout</a></li>

@@ -44,10 +44,10 @@ if(!isset($_SESSION['username'])){
           <li><a href="../students/students.html">Students</a></li>
           <li>
             <ul>
-              <li><a href="#">Add new Student</a></li>
+              <li><a href="../students/addStudent.php">Add new Student</a></li>
             </ul>
           </li>
-          <li><a href="#">Parents</a></li>
+          <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="#">Meetings</a></li>
           <li><a href="#">Recent</a></li> 
           <li><a href="../logout.php">Logout</a></li>
@@ -98,7 +98,7 @@ if(!isset($_SESSION['username'])){
             <td>0614598765</td>
             <td>btrgouti@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -116,7 +116,7 @@ if(!isset($_SESSION['username'])){
             <td>0679854236</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -134,7 +134,7 @@ if(!isset($_SESSION['username'])){
             <td>0679854236</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -152,7 +152,7 @@ if(!isset($_SESSION['username'])){
             <td>0614598765</td>
             <td>btrgouti@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>

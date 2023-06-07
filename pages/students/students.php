@@ -13,7 +13,7 @@ if(!isset($_SESSION['username'])){
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="students.css" />
-  <title>Netflix Mobile Navigation</title>
+  <title>All Students</title>
 </head>
 <body>
   
@@ -98,7 +98,7 @@ if(!isset($_SESSION['username'])){
             <td>0614598765</td>
             <td>btrgouti@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -116,7 +116,7 @@ if(!isset($_SESSION['username'])){
             <td>0679854236</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -134,7 +134,7 @@ if(!isset($_SESSION['username'])){
             <td>0679854236</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
@@ -152,7 +152,7 @@ if(!isset($_SESSION['username'])){
             <td>0614598765</td>
             <td>btrgouti@gmail.com</td>
             <td>
-              <button><a href="viewTeacherInfo.html"><img src="../photos/eye.png" alt=""></a></button>
+              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
