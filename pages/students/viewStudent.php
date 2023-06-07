@@ -42,7 +42,7 @@
             </ul>
           </li>
           <li><a href="../parents/parents.php">Parents</a></li>
-          <li><a href="#">Meetings</a></li>
+          <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="#">Recent</a></li> 
           <li><a href="../logout.php">Logout</a></li>
         </ul>

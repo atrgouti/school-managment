@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="parents.css" />
+  <link rel="stylesheet" href="meetings.css" />
   <title>Netflix Mobile Navigation</title>
 </head>
 <body>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['username'])){
             </ul>
           </li>
           <li><a href="parents.php">Parents</a></li>
-          <li><a href="../meetings/meetings.php">Meetings</a></li>
+          <li><a href="#">Meetings</a></li>
           <li><a href="#">Recent</a></li> 
           <li><a href=".../logout.php">Logout</a></li>
         </ul>
@@ -58,53 +58,73 @@ if(!isset($_SESSION['username'])){
 
 
   <div class="home">
-    <p>Home - All Parents List</p>
+    <p>Home - All meetings list</p>
     <img src="../photos/ofppt.png" alt="">
   </div>
   <main>
       <header>
-        <p class="all">All Parents</p>
-        
+        <p class="all">All Meetings</p>
+        <p class="newMeeting"><a href="#" class="open-button">Add a new meetinggggg</a></p> 
       </header>
       <hr>
       <table  style='border-collapse: collapse' class="table">
         <thead>
           <tr>
             <th>Id</th>
-            <th>Photo</th>
-            <th>Father's Name</th>
-            <th>Mother's Name</th>
-            <th>Father's Occupation</th>
-            <th>Adress</th>
-            <th>Email</th>
-            <th>Kids</th>
-            <th>Kids Name</th>
-            <th>Mobile number</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody class='tbody'>
           <tr>
             <td>1</td>
-            <td><img src="../photos/father.jpg" alt=""></td>
-            <td>Abdolah</td>
-            <td>Fatima</td>
-            <td>Dentist</td>
-            <td>Hay el amal</td>
-            <td>btrgouti@gmail.co</td>
-            <td>1</td>
-            <td>Bilal</td>
-            <td>0614598765</td>
+            <td>School meeting</td>
+            <td>6/7/2023</td>
+            <td>15:00 - 16:00</td>
+            <td>Office</td>
             <td>
-              <button><a href="viewparent.php"><img src="../photos/eye.png" alt=""></a></button>
+                <a href="viewparent.php"><button>Done</button></a>
             </td>
           </tr>
         </tbody>
       </table>
   </main>
+  <dialog class="modal" id="modal">
+    <h3><a href="">Add a new meeting</h3>
+    <form action="">
+        <table>
+            <tr>
+                <td><label for="">Tile</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="">Date</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="">Time</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="">Location</label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class='btn'>
+                <td><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+</dialog>
+
 
 </div>
-  <script src="parents.js"></script>
+
+
+
+  <script src="meetings.js"></script>
 </body>
 
 </html>
