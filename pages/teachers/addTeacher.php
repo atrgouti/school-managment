@@ -96,10 +96,6 @@
                     <input type="date" placeholder="dd/mm/yyy">
                 </div>
                 <div class="section feilds">
-                    <label for="">Id Num</label><br>
-                    <input type="text">
-                </div>
-                <div class="section feilds">
                     <label for="">Subject</label><br>
                     <select name="" id="">
                       <option value="">Math</option>
