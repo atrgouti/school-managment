@@ -226,6 +226,8 @@ main table tr{
     background-color: white;
     color: black;
     margin: 0px auto;
+    position: relative;
+    color: black;
 }
 .modal table{
     display: flex;
@@ -252,4 +254,10 @@ main table tr{
 .modal h3{
     text-align: center;
     padding-top: 20px;
+}
+.modal img{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
 }

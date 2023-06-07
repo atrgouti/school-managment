@@ -94,6 +94,7 @@ if(!isset($_SESSION['username'])){
   </main>
   <dialog class="modal" id="modal">
     <h3><a href="">Add a new meeting</h3>
+    <img src="../photos/close.png" alt="">
     <form action="">
         <table>
             <tr>

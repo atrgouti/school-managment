@@ -29,5 +29,5 @@ const modal = document.querySelector(".modal")
 const openmodal = document.querySelector(".open-button")
 
 openmodal.addEventListener("click", () => {
-    console.log("khdam")
+    modal.showModal();
 })
