@@ -58,7 +58,7 @@ if(!isset($_SESSION['username'])){
 
 
   <div class="home">
-    <p>Home - Admin</p>
+    <p>Home - All Students</p>
     <img src="../photos/ofppt.png" alt="">
   </div>
   <main>

@@ -52,12 +52,12 @@
 
   <!-- start working on the page -->
   <div class="home">
-    <p>Home - Admin</p>
+    <p>Home - Add New Teacher</p>
     <img src="../photos/ofppt.png" alt="">
   </div>
   <main>
         <header>
-        <p class="all">Add teacher form</p>
+        <p class="all">Teacher Information</p>
         <hr>
         </header>
         <div class="content">
