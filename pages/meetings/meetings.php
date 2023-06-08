@@ -95,10 +95,10 @@ if(!isset($_SESSION['username'])){
   <dialog class="modal" id="modal">
     <h3><a href="">Add a new meeting</h3>
     <img src="../photos/close.png" alt="">
-    <form action="">
+    <form action="" method="dialog">
         <table>
             <tr>
-                <td><label for="">Tile</label></td>
+                <td><label>Tile</label></td>
                 <td><input type="text"></td>
             </tr>
             <tr>

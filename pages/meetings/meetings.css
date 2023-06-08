@@ -228,6 +228,10 @@ main table tr{
     margin: 0px auto;
     position: relative;
     color: black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .modal table{
     display: flex;
