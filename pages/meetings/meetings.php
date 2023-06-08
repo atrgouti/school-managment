@@ -93,8 +93,8 @@ if(!isset($_SESSION['username'])){
       </table>
   </main>
   <dialog class="modal" id="modal">
-    <h3><a href="">Add a new meeting</h3>
-    <img src="../photos/close.png" alt="">
+    <h3>Add a new meeting</h3>
+    <img src="../photos/close.png" alt="" class="close-button">
     <form action="" method="dialog">
         <table>
             <tr>

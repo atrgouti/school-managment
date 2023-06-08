@@ -230,7 +230,7 @@ main table tr{
     color: black;
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -50%);
 }
 .modal table{
@@ -264,4 +264,8 @@ main table tr{
   top: 10px;
   right: 10px;
   height: 20px;
+}
+
+.close-button{
+  cursor: pointer;
 }
