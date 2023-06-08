@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])){
-  header("location: ../login.php");
+  header("location: ../../login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ if(!isset($_SESSION['username'])){
           <li><a href="parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="#">Recent</a></li> 
-          <li><a href=".../logout.php">Logout</a></li>
+          <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
     </div>

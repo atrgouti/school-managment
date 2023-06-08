@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header("location: ../../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +50,7 @@
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php ">Meetings</a></li>
           <li><a href="#">Recent</a></li> 
-          <li><a href="../logout.php">Logout</a></li>
+          <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
     </div>
@@ -71,8 +77,14 @@
                     <input type="text">
                 </div>
                 <div class="class feilds">
-                    <label for="">Class Name</label><br>
-                    <input type="text">
+                    <label for="">Class Number</label><br>
+                    <select name="" id="">
+                      <option value="">A</option>
+                      <option value="">B</option>
+                      <option value="">C</option>
+                      <option value="">D</option>
+                      <option value="">E</option>
+                    </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Section</label><br>
@@ -116,6 +128,10 @@
                 <div class="section feilds">
                     <label for="">Adress</label><br>
                     <input type="text">
+                </div>
+                <div class="section feilds">
+                    <label for="">Joining Date</label><br>
+                    <input type="date" placeholder="dd/mm/yyy">
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
