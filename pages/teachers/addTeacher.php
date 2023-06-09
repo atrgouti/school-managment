@@ -67,7 +67,7 @@ if(!isset($_SESSION['username'])){
         <hr>
         </header>
         <div class="content">
-            <form action="" method="post"  class="studentFrom">
+            <form action="bobo.php" method="post"  class="studentFrom">
                 <div class="name feilds">
                     <label for="">First Name</label><br>
                     <input type="text" name="first_name">
@@ -139,7 +139,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file" name="photo_path">
+                    <input type="file" name="sora">
                 </div>
                 <div class="section feilds">
                   <button type="submit" class="submit" name="submit">Add teacher</button>
@@ -153,13 +153,21 @@ if(!isset($_SESSION['username'])){
 
 
 <?php
-  if(isset($_POST['submit'])){
-    if(!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['class_number']) && !empty($_POST['section']) && !empty($_POST['gender']) && !empty($_POST['dateofbirth']) && !empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['number']) && !empty($_POST['adress']) && !empty($_POST['joindate']) && !empty($_POST['accountpassword']) && !empty($_FILES['photo_path'])){
-      print_r($_FILES['photo_path']);
-    }else{
-      echo 'please fill all the feilds';
-    }
-  }
+
+  // if(isset($_POST['submit'])){
+  //   if(isset($_FILES["my_photo"])){
+  //     print_r($_FILES["my_photo"]);
+  //   }
+  // }
+
+
+  // if(isset($_POST['submit'])){
+  //   if(!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['class_number']) && !empty($_POST['section']) && !empty($_POST['gender']) && !empty($_POST['dateofbirth']) && !empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['number']) && !empty($_POST['adress']) && !empty($_POST['joindate']) && !empty($_POST['accountpassword']) && !empty($_FILES['photo_path'])){
+  //     print_r($_FILES['photo_path']);
+  //   }else{
+  //     echo 'please fill all the feilds';
+  //   }
+  // }
 ?>
 <script src="addTeacher.js"></script>
 
