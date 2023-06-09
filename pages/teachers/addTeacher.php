@@ -67,18 +67,18 @@ if(!isset($_SESSION['username'])){
         <hr>
         </header>
         <div class="content">
-            <form action="" class="studentFrom">
+            <form action="" method="post"  class="studentFrom">
                 <div class="name feilds">
                     <label for="">First Name</label><br>
-                    <input type="text">
+                    <input type="text" name="first_name">
                 </div>
                 <div class="last feilds">
                     <label for="">Last Name</label><br>
-                    <input type="text">
+                    <input type="text" name="last_name">
                 </div>
                 <div class="class feilds">
                     <label for="">Class Number</label><br>
-                    <select name="" id="">
+                    <select name="" id="" name="class_number">
                       <option value="">1</option>
                       <option value="">2</option>
                       <option value="">3</option>
@@ -88,7 +88,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Section</label><br>
-                    <select name="" id="">
+                    <select name="" id="" name="section">
                       <option value="">A</option>
                       <option value="">B</option>
                       <option value="">C</option>
@@ -98,18 +98,18 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Gender</label><br>
-                    <select name="" id="">
+                    <select name="gender" id="">
                       <option value="">Male</option>
                       <option value="">Famale</option>
                     </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Date of birth</label><br>
-                    <input type="date" placeholder="dd/mm/yyy">
+                    <input type="date" placeholder="dd/mm/yyy" name="dateofbirth">
                 </div>
                 <div class="section feilds">
                     <label for="">Subject</label><br>
-                    <select name="" id="">
+                    <select name="subject" id="">
                       <option value="">Math</option>
                       <option value="">Arabic</option>
                       <option value="">Pysics</option>
@@ -119,30 +119,30 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Email</label><br>
-                    <input type="email">
+                    <input type="email" name="email">
                 </div>
                 <div class="section feilds">
                     <label for="">Phone number</label><br>
-                    <input type="number">
+                    <input type="number" name="number">
                 </div>
                 <div class="section feilds">
                     <label for="">Adress</label><br>
-                    <input type="text">
+                    <input type="text" name="adress">
                 </div>
                 <div class="section feilds">
                     <label for="">Joining Date</label><br>
-                    <input type="date" placeholder="dd/mm/yyy">
+                    <input type="date" name="joindate" placeholder="dd/mm/yyy">
                 </div>
                 <div class="section feilds">
                     <label for="">Account password</label><br>
-                    <input type="password">
+                    <input type="password" name="accountpassword">
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file">
+                    <input type="file" name="photo_path">
                 </div>
                 <div class="section feilds">
-                  <button type="submit" class="submit">Add teacher</button>
+                  <button type="submit" class="submit" name="submit">Add teacher</button>
                   <button type="reset" class="reset">Reset</button>
                 </div>
             </form> 
@@ -152,7 +152,15 @@ if(!isset($_SESSION['username'])){
 </div>
 
 
-
+<?php
+  if(isset($_POST['submit'])){
+    if(!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['class_number']) && !empty($_POST['section']) && !empty($_POST['gender']) && !empty($_POST['dateofbirth']) && !empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['number']) && !empty($_POST['adress']) && !empty($_POST['joindate']) && !empty($_POST['accountpassword']) && !empty($_FILES['photo_path'])){
+      print_r($_FILES['photo_path']);
+    }else{
+      echo 'please fill all the feilds';
+    }
+  }
+?>
 <script src="addTeacher.js"></script>
 
 </body>
