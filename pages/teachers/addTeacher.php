@@ -79,11 +79,11 @@ if(!isset($_SESSION['username'])){
                 <div class="class feilds">
                     <label for="">Class Number</label><br>
                     <select name="" id="">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                      <option value="">E</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                      <option value="">5</option>
                     </select>
                 </div>
                 <div class="section feilds">
@@ -132,6 +132,10 @@ if(!isset($_SESSION['username'])){
                 <div class="section feilds">
                     <label for="">Joining Date</label><br>
                     <input type="date" placeholder="dd/mm/yyy">
+                </div>
+                <div class="section feilds">
+                    <label for="">Account password</label><br>
+                    <input type="password">
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>

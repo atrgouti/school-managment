@@ -107,6 +107,10 @@ if(!isset($_SESSION['username'])){
                     <input type="email">
                 </div>
                 <div class="section feilds">
+                    <label for="">Account password</label><br>
+                    <input type="password">
+                </div>
+                <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
                     <input type="file">
                 </div>
