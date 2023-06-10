@@ -103,60 +103,34 @@ if(!isset($_SESSION['username'])){
               <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td><img src="../photos/ostada.jpg" alt=""></td>
-            <td>Aya</td>
-            <td>famale</td>
-            <td>Arabe</td>
-            <td>D</td>
-            <td>B</td>
-            <td>Hay El Saada</td>
-            <td>2003/7/20</td>
-            <td>0679854236</td>
-            <td>hanan2876@gmail.com</td>
+          <?php
+          include_once '../../db_connect.php';
+          $sql = "SELECT * FROM teachers";
+          $res = $cone->prepare($sql);
+          $res->execute();
+          while($row = $res->fetch()){
+            echo "
+            <tr>
+            <td>$row[teacher_id]</td>
+            <td><img src='teacherPhotos/$row[photo_path]' alt=''></td>
+            <td>$row[first_name]</td>
+            <td>$row[gender]</td>
+            <td>$row[subject]</td>
+            <td>$row[class_number]</td>
+            <td>$row[section]</td>
+            <td>$row[adress]</td>
+            <td>$row[date_of_birth]</td>
+            <td>$row[phone_number]</td>
+            <td>$row[email]</td>
             <td>
-              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
+              <button><a href='viewTeacherInfo.php'><img src='../photos/eye.png' alt=''></a></button>
+              <button><a href='#'><img src='../photos/edit.png' alt=''></a></button>
+              <button><a href='#'><img src='../photos/delete.png' alt=''></a></button>
             </td>
           </tr>
-          <tr>
-            <td>3</td>
-            <td><img src="../photos/ostada2.jpg" alt=""></td>
-            <td>Aya</td>
-            <td>famale</td>
-            <td>Arabe</td>
-            <td>D</td>
-            <td>B</td>
-            <td>Hay El Saada</td>
-            <td>2003/7/20</td>
-            <td>0679854236</td>
-            <td>hanan2876@gmail.com</td>
-            <td>
-              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><img src="../photos/ostad3.jpg" alt=""></td>
-            <td>Bilal</td>
-            <td>Male</td>
-            <td>Math</td>
-            <td>A</td>
-            <td>C</td>
-            <td>Hay El Amal</td>
-            <td>2005/5/15</td>
-            <td>0614598765</td>
-            <td>btrgouti@gmail.com</td>
-            <td>
-              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
-            </td>
-          </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
   </main>
