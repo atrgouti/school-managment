@@ -70,30 +70,30 @@ if(!isset($_SESSION['username'])){
             <form action="" method="post"  class="studentFrom" enctype="multipart/form-data">
                 <div class="name feilds">
                     <label for="">First Name</label><br>
-                    <input type="text" name="first_name">
+                    <input type="text" name="first_name" required>
                 </div>
                 <div class="last feilds">
                     <label for="">Last Name</label><br>
-                    <input type="text" name="last_name">
+                    <input type="text" name="last_name" required>
                 </div>
                 <div class="class feilds">
                     <label for="">Class Number</label><br>
-                    <select name="" id="" name="class_number">
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4</option>
-                      <option value="">5</option>
+                    <select id="" name="class_number"> 
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Section</label><br>
-                    <select name="" id="" name="section">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                      <option value="">E</option>
+                    <select id="" name="section">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
                     </select>
                 </div>
                 <div class="section feilds">
@@ -105,41 +105,41 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Date of birth</label><br>
-                    <input type="date" placeholder="dd/mm/yyy" name="dateofbirth">
+                    <input type="date" placeholder="dd/mm/yyy" name="dateofbirth" required>
                 </div>
                 <div class="section feilds">
                     <label for="">Subject</label><br>
                     <select name="subject" id="">
-                      <option value="">Math</option>
-                      <option value="">Arabic</option>
-                      <option value="">Pysics</option>
-                      <option value="">SVT</option>
-                      <option value="">History</option>
+                      <option value="Math">Math</option>
+                      <option value="Arabic">Arabic</option>
+                      <option value="Pysics">Pysics</option>
+                      <option value="SVT">SVT</option>
+                      <option value="History">History</option>
                     </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Email</label><br>
-                    <input type="email" name="email">
+                    <input type="email" name="email" required>
                 </div>
                 <div class="section feilds">
                     <label for="">Phone number</label><br>
-                    <input type="number" name="number">
+                    <input type="number" name="number" required>
                 </div>
                 <div class="section feilds">
                     <label for="">Adress</label><br>
-                    <input type="text" name="adress">
+                    <input type="text" name="adress" required>
                 </div>
                 <div class="section feilds">
                     <label for="">Joining Date</label><br>
-                    <input type="date" name="joindate" placeholder="dd/mm/yyy">
+                    <input type="date" name="joindate" placeholder="dd/mm/yyy" required>
                 </div>
                 <div class="section feilds">
                     <label for="">Account password</label><br>
-                    <input type="password" name="accountpassword">
+                    <input type="password" name="accountpassword" required>
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file" name="photo_path">
+                    <input type="file" name="photo_path" required>
                 </div>
                 <div class="section feilds">
                   <button type="submit" class="submit" name="submit">Add teacher</button>
@@ -156,11 +156,23 @@ if(!isset($_SESSION['username'])){
 
 
   if(isset($_POST['submit'])){
-    if(!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['class_number']) && !empty($_POST['section']) && !empty($_POST['gender']) && !empty($_POST['dateofbirth']) && !empty($_POST['subject']) && !empty($_POST['email']) && !empty($_POST['number']) && !empty($_POST['adress']) && !empty($_POST['joindate']) && !empty($_POST['accountpassword'])){
-      print_r($_FILES['photo_path']);
-    }else{
-      echo 'please fill all the feilds';
+    $image_place = $_FILES['photo_path']['tmp_name'];
+    $image_name = $_FILES['photo_path']['name'];
+    $image_error = $_FILES['photo_path']['error'];
+    if($image_error === 0){
+      move_uploaded_file($image_place, 'teacherPhotos/'.$image_name);
+      include_once '../../db_connect.php';
+      $sql = 'INSERT INTO teachers(first_name, last_name, class_number, section, gender, date_of_birth , subject, email, phone_number, adress, joining_date, photo_path, account_password) Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $res = $cone->prepare($sql);
+      $res->execute($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_POST['accountpassword'], $_FILES['photo_path']['name']);
+      if($res){
+        header('location: teachers.php');
+      }else{
+        echo 'something went wrong';
+      }
+
     }
+
   }
 ?>
 <script src="addTeacher.js"></script>
