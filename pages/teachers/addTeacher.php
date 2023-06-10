@@ -2,12 +2,13 @@
 session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
-}
+  exit();
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <!-- <meta charset="UTF-8" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
@@ -99,8 +100,8 @@ if(!isset($_SESSION['username'])){
                 <div class="section feilds">
                     <label for="">Gender</label><br>
                     <select name="gender" id="">
-                      <option value="">Male</option>
-                      <option value="">Famale</option>
+                      <option value="Male">Male</option>
+                      <option value="Famale">Famale</option>
                     </select>
                 </div>
                 <div class="section feilds">
@@ -153,9 +154,7 @@ if(!isset($_SESSION['username'])){
 
 
 <?php
-
-
-  if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
     $image_place = $_FILES['photo_path']['tmp_name'];
     $image_name = $_FILES['photo_path']['name'];
     $image_error = $_FILES['photo_path']['error'];
@@ -164,16 +163,12 @@ if(!isset($_SESSION['username'])){
       include_once '../../db_connect.php';
       $sql = 'INSERT INTO teachers(first_name, last_name, class_number, section, gender, date_of_birth , subject, email, phone_number, adress, joining_date, photo_path, account_password) Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
       $res = $cone->prepare($sql);
-      $res->execute($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_POST['accountpassword'], $_FILES['photo_path']['name']);
+      $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_FILES['photo_path']['name'], $_POST['accountpassword']));
       if($res){
-        header('location: teachers.php');
-      }else{
-        echo 'something went wrong';
+        echo 'the theacher '.$_POST['first_name'].'is added succefully';
       }
-
     }
-
-  }
+}
 ?>
 <script src="addTeacher.js"></script>
 

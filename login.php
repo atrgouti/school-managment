@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <h1>OFPPT</h1>
+        <img src="pages/photos/ofppt.png" alt="">
         <ul>
             <li>contact Us</li>
         </ul>
