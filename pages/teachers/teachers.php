@@ -85,24 +85,6 @@ if(!isset($_SESSION['username'])){
           </tr>
         </thead>
         <tbody class='tbody'>
-          <tr>
-            <td>1</td>
-            <td><img src="../photos/ostad3.jpg" alt=""></td>
-            <td>Bilal</td>
-            <td>Male</td>
-            <td>Math</td>
-            <td>A</td>
-            <td>C</td>
-            <td>Hay El Amal</td>
-            <td>2005/5/15</td>
-            <td>0614598765</td>
-            <td>btrgouti@gmail.com</td>
-            <td>
-              <button><a href="viewTeacherInfo.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
-            </td>
-          </tr>
           <?php
           include_once '../../db_connect.php';
           $sql = "SELECT * FROM teachers";
