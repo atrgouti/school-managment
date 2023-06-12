@@ -3,6 +3,9 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../login.php");
 }
+
+include_once '../db_connect.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
