@@ -106,7 +106,7 @@ if(!isset($_SESSION['username'])){
             <td>$row[email]</td>
             <td>
               <button><a href='viewTeacherInfo.php?id=$row[teacher_id]'><img src='../photos/eye.png' alt=''></a></button>
-              <button><a href='modifierTeacher.php'><img src='../photos/edit.png' alt=''></a></button>
+              <button><a href='modifierTeacher.php?id=$row[teacher_id]'><img src='../photos/edit.png' alt=''></a></button>
               <button><a href='deleteTeacher.php/?id=$row[teacher_id]'><img src='../photos/delete.png' alt=''></a></button>
             </td>
           </tr>

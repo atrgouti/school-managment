@@ -71,85 +71,72 @@ if(!isset($_SESSION['username'])){
         <hr>
         </header>
         <div class="content">
-            <form action="" method="post"  class="studentFrom" enctype="multipart/form-data">
-                <div class="name feilds">
-                    <label for="">First Name</label><br>
-                    <input type="text" name="first_name" required>
-                </div>
-                <div class="last feilds">
-                    <label for="">Last Name</label><br>
-                    <input type="text" name="last_name" required>
-                </div>
-                <div class="class feilds">
-                    <label for="">Class Number</label><br>
-                    <select id="" name="class_number"> 
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="section feilds">
-                    <label for="">Section</label><br>
-                    <select id="" name="section">
-                      <option value="A">A</option>
-                      <option value="B">B</option>
-                      <option value="C">C</option>
-                      <option value="D">D</option>
-                      <option value="E">E</option>
-                    </select>
-                </div>
-                <div class="section feilds">
-                    <label for="">Gender</label><br>
-                    <select name="gender" id="">
-                      <option value="Male">Male</option>
-                      <option value="Famale">Famale</option>
-                    </select>
-                </div>
-                <div class="section feilds">
-                    <label for="">Date of birth</label><br>
-                    <input type="date" placeholder="dd/mm/yyy" name="dateofbirth" required>
-                </div>
-                <div class="section feilds">
-                    <label for="">Subject</label><br>
-                    <select name="subject" id="">
-                      <option value="Math">Math</option>
-                      <option value="Arabic">Arabic</option>
-                      <option value="Pysics">Pysics</option>
-                      <option value="SVT">SVT</option>
-                      <option value="History">History</option>
-                    </select>
-                </div>
-                <div class="section feilds">
-                    <label for="">Email</label><br>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="section feilds">
-                    <label for="">Phone number</label><br>
-                    <input type="number" name="number" required>
-                </div>
-                <div class="section feilds">
-                    <label for="">Adress</label><br>
-                    <input type="text" name="adress" required>
-                </div>
-                <div class="section feilds">
-                    <label for="">Joining Date</label><br>
-                    <input type="date" name="joindate" placeholder="dd/mm/yyy" required>
-                </div>
-                <div class="section feilds">
-                    <label for="">Account password</label><br>
-                    <input type="password" name="accountpassword" required>
-                </div>
-                <div class="section feilds">
-                    <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file" name="photo_path" required>
-                </div>
-                <div class="section feilds">
-                  <button type="submit" class="submit" name="submit">Add teacher</button>
-                  <button type="reset" class="reset">Reset</button>
-                </div>
-            </form> 
+            <?php
+                include_once '../../db_connect.php';
+                $id = $_GET['id'];
+                $sql = 'SELECT * FROM teachers WHERE teacher_id=?';
+                $res = $cone->prepare($sql);
+                $res->execute(array($id));
+                while($row = $res->fetch()){
+                    echo "
+                        <form action='' method='post'  class='studentFrom' enctype='multipart/form-data'>
+                        <div class='name feilds'>
+                            <label for=''>First Name</label><br>
+                            <input value='$row[first_name]' type='text' name='first_name' required>
+                        </div>
+                        <div class='last feilds'>
+                            <label for=''>Last Name</label><br>
+                            <input value='$row[last_name]' type='text' name='last_name' required>
+                        </div>
+                        <div class='class feilds'>
+                            <label for=''>Class Number</label><br>
+                            <input value='$row[class_number]' type='class_number'>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Section</label><br>
+                            <input value='$row[section]' type='text' name='section'>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Gender</label><br>
+                            <input value='$row[gender]' type='text' name='gender'>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Date of birth</label><br>
+                            <input value='$row[date_of_birth]' type='date' placeholder='dd/mm/yyy' name='dateofbirth' required>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Subject</label><br>
+                            <input value='$row[subject]' type='subject'>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Email</label><br>
+                            <input value='$row[email]' type='email' name='email' required>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Phone number</label><br>
+                            <input value='$row[phone_number]' type='number' name='number' required>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Adress</label><br>
+                            <input value='$row[adress]' type='text' name='adress' required>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Joining Date</label><br>
+                            <input value='$row[joining_date]' type='date' name='joindate' required>
+                        </div>
+                        <div class='section feilds'>
+                            <label for=''>Account password</label><br>
+                            <input value='$row[account_password]' type='text' name='accountpassword' required>
+                        </div>
+                        <div class='section feilds'>
+                        <button type='submit' class='submit' name='submit'>Add teacher</button>
+                        <button type='reset' class='reset'>Reset</button>
+                        </div>
+                        </form> 
+                    ";
+                }
+
+            ?>
         </div>
     </main>
 
