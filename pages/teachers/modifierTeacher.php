@@ -129,13 +129,12 @@ if(!isset($_SESSION['username'])){
                             <input value='$row[account_password]' type='text' name='accountpassword' required>
                         </div>
                         <div class='section feilds'>
-                        <button type='submit' class='submit' name='submit'>Add teacher</button>
+                        <button type='submit' class='submit' name='submit'>modifey teacher</button>
                         <button type='reset' class='reset'>Reset</button>
                         </div>
                         </form> 
                     ";
                 }
-
             ?>
         </div>
     </main>
@@ -145,20 +144,16 @@ if(!isset($_SESSION['username'])){
 
 <?php
 if(isset($_POST['submit'])){
-    $image_place = $_FILES['photo_path']['tmp_name'];
-    $image_name = $_FILES['photo_path']['name'];
-    $image_error = $_FILES['photo_path']['error'];
-    if($image_error === 0){
-      move_uploaded_file($image_place, 'teacherPhotos/'.$image_name);
       include_once '../../db_connect.php';
-      $sql = 'INSERT INTO teachers(first_name, last_name, class_number, section, gender, date_of_birth , subject, email, phone_number, adress, joining_date, photo_path, account_password) Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $sql = "UPDATE teachers SET first_name =?, last_name =?, class_number =?, section =? , gender =?, date_of_birth =?, `subject`='[value-8]',`email`='[value-9]',`phone_number`='[value-10]',`adress`='[value-11]',`joining_date`='[value-12]',`photo_path`='[value-13]',`account_password`='[value-14]' WHERE 1";
       $res = $cone->prepare($sql);
+
       $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_FILES['photo_path']['name'], $_POST['accountpassword']));
       if($res){
         echo 'the theacher '.$_POST['first_name'].'is added succefully';
       }
     }
-}
+
 ?>
 <script src="addTeacher.js"></script>
 
