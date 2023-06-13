@@ -67,53 +67,63 @@ if(!isset($_SESSION['username'])){
         <hr>
         </header>
         <div class="infos">
-          <img src="../photos/ostada.jpg" alt="">
+        <?php
+          include_once '../../db_connect.php';
+          $id2 = $_GET['id'];
+          $sql = 'SELECT * FROM teachers WHERE teacher_id=?';
+          $res = $cone->prepare($sql);
+          $res->execute(array($id2));
+          while($row = $res->fetch()){
+            echo "
+          <img src='teacherPhotos/$row[photo_path]'>
           <table>
             <tr>
-              <td>Name:</td>
-              <td>Ouiam Lakhchin</td>
-            </tr>
-            <tr>
-              <td>Gender:</td>
-              <td>Famale</td>
-            </tr>
-            <tr>
-              <td>Date of birth:</td>
-              <td>9/7/2004</td>
-            </tr>
-            <tr>
-              <td>E-Mail:</td>
-              <td>ouiam@gmail.com</td>
-            </tr>
-            <tr>
-              <td>Joining Date</td>
-              <td>05/04/2016</td>
-            </tr>
-            <tr>
-              <td>Subject:</td>
-              <td>Math</td>
-            </tr>
-            <tr>
-              <td>Class:</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>Section:</td>
-              <td>A</td>
-            </tr>
-            <tr>
-              <td>Id:</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>Adress:</td>
-              <td>Hay el amal el gharbi 02</td>
-            </tr>
-            <tr>
-              <td>Phone:</td>
-              <td>+212652983093</td>
-            </tr>
-
+                <td>Name:</td>
+                <td>$row[first_name]</td>
+              </tr>
+              <tr>
+                <td>Gender:</td>
+                <td>$row[gender]</td>
+              </tr>
+              <tr>
+                <td>Date of birth:</td>
+                <td>$row[date_of_birth]</td>
+              </tr>
+              <tr>
+                <td>E-Mail:</td>
+                <td>$row[email]</td>
+              </tr>
+              <tr>
+                <td>Joining Date</td>
+                <td>$row[joining_date]</td>
+              </tr>
+              <tr>
+                <td>Subject:</td>
+                <td>$row[subject]</td>
+              </tr>
+              <tr>
+                <td>Class:</td>
+                <td>$row[class_number]</td>
+              </tr>
+              <tr>
+                <td>Section:</td>
+                <td>$row[section]</td>
+              </tr>
+              <tr>
+                <td>Id:</td>
+                <td>$row[teacher_id]</td>
+              </tr>
+              <tr>
+                <td>Adress:</td>
+                <td>$row[adress]</td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td>$row[phone_number]</td>
+              </tr>
+            ";
+          }
+          ?>
           </table>
         </div>
   </main>

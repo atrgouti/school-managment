@@ -59,7 +59,7 @@ if(!isset($_SESSION['username'])){
 
   <!-- start working on the page -->
   <div class="home">
-    <p>Home - Add New Teacher</p>
+    <p>Home - Modifier teacher</p>
     <img src="../photos/ofppt.png" alt="">
   </div>
   <main>

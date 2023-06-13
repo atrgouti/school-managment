@@ -41,7 +41,7 @@ if(!isset($_SESSION['username'])){
               <li><a href="addTeacher.php">Add new teacher</a></li>
             </ul>
           </li>
-          <li><a href="../students/students.html">Students</a></li>
+          <li><a href="../students/students.php">Students</a></li>
           <li>
             <ul>
               <li><a href="../students/addStudent.php">Add new Student</a></li>
@@ -105,9 +105,9 @@ if(!isset($_SESSION['username'])){
             <td>$row[phone_number]</td>
             <td>$row[email]</td>
             <td>
-              <button><a href='viewTeacherInfo.php'><img src='../photos/eye.png' alt=''></a></button>
-              <button><a href='#'><img src='../photos/edit.png' alt=''></a></button>
-              <button><a href='#'><img src='../photos/delete.png' alt=''></a></button>
+              <button><a href='viewTeacherInfo.php?id=$row[teacher_id]'><img src='../photos/eye.png' alt=''></a></button>
+              <button><a href='modifierTeacher.php'><img src='../photos/edit.png' alt=''></a></button>
+              <button><a href='deleteTeacher.php/?id=$row[teacher_id]'><img src='../photos/delete.png' alt=''></a></button>
             </td>
           </tr>
             ";

@@ -169,6 +169,22 @@ body {
     padding-left: 20px;
     font-weight: bold;
   }
+  main header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main header .splayo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  main header .splayo a{
+    text-decoration: none;
+    color: red;
+    margin-right: 20px;
+  }
 
 
 
