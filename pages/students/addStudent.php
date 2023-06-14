@@ -68,22 +68,22 @@ if(!isset($_SESSION['username'])){
         </header>
         <div class="content">
             <p style='margin-left:20px;'>Student information</p>
-            <form action="" class="studentFrom" id='form1'>
+            <form action="process.php" method='post' class="studentFrom" id='form1'>
                 <div class="name feilds">
                     <label for="">First Name</label><br>
-                    <input type="text">
+                    <input type="text" name='student_firstname'>
                 </div>
                 <div class="last feilds">
                     <label for="">Last Name</label><br>
-                    <input type="text">
+                    <input type="text" name='student_lastname'>
                 </div>
                 <div class="class feilds">
                     <label for="">Class Name</label><br>
-                    <input type="text">
+                    <input type="text" name='student_classnumber'>
                 </div>
                 <div class="section feilds">
                     <label for="">Section</label><br>
-                    <select name="" id="">
+                    <select name="student_section" id="">
                       <option value="">A</option>
                       <option value="">B</option>
                       <option value="">C</option>
@@ -93,33 +93,31 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Gender</label><br>
-                    <select name="" id="">
+                    <select name="student_gender" id="">
                       <option value="">Male</option>
                       <option value="">Famale</option>
                     </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Date of birth</label><br>
-                    <input type="date" placeholder="dd/mm/yyy">
+                    <input type="date" placeholder="dd/mm/yyy" name='student_gender'>
                 </div>
                 <div class="section feilds">
                     <label for="">Email</label><br>
-                    <input type="email">
+                    <input type="email" name='student_email'>
                 </div>
                 <div class="section feilds">
                     <label for="">Account password</label><br>
-                    <input type="password">
+                    <input type="password" name='student_account_pass'>
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file">
+                    <input type="file" name='student_p'>
                 </div>
-            </form> 
-            <p style='margin-left:20px;'>Parents information</p>
-            <form action=""  class="studentFrom" id='form2'>
+            <p style='margin-left:20px; width:100%;'>Parents information</p>
                 <div class="name feilds">
                     <label for="">Father Name</label><br>
-                    <input type="text">
+                    <input type="text" name='Father_Name''>
                 </div>
                 <div class="last feilds">
                     <label for="">Mother Name</label><br>
@@ -155,12 +153,13 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                 </div>
+                <button class="submit" type='submit'>Add teacher</button>
+                <button onclick="resetAllInputs()"  type="reset" class="reset">Reset</button>
             </form>
-            <button onclick="submitForms()" class="submit">Add teacher</button>
-            <button onclick="resetAllInputs()"  type="reset" class="reset">Reset</button>
         </div>
     </main> 
 </div>
+
 
 <script src="addStudent.js"></script>
 
