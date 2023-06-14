@@ -3,9 +3,13 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../login.php");
 }
-
 include_once '../db_connect.php';
-
+$sqlteacher = 'SELECT COUNT(*) AS teacher FROM teachers';
+$resTeacher = $cone->prepare($sqlteacher);
+$resTeacher->execute();
+while($numteachers = $resTeacher->fetch()){
+  $_SESSION['numTeacher'] = $numteachers['teacher'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +41,7 @@ include_once '../db_connect.php';
       <p>Students</p>
     </span>
     <div class="line"></div>
-    <h1 data-val="350" class="nums">000</h1>
+    <h1 data-val="200" class="nums">000</h1>
   </div>
 
 
@@ -47,7 +51,7 @@ include_once '../db_connect.php';
       <p>Teachers</p>
     </span>
     <div class="line"></div>
-    <h1 class="nums" data-val="200">000</h1>
+    <h1 class="nums" data-val="<?php echo $_SESSION['numTeacher'];?>">000</h1>
   </div>
 
 

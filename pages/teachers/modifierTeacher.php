@@ -90,7 +90,7 @@ if(!isset($_SESSION['username'])){
                         </div>
                         <div class='class feilds'>
                             <label for=''>Class Number</label><br>
-                            <input value='$row[class_number]' type='class_number'>
+                            <input value='$row[class_number]' name='class_number' type='class_number'>
                         </div>
                         <div class='section feilds'>
                             <label for=''>Section</label><br>
@@ -106,7 +106,7 @@ if(!isset($_SESSION['username'])){
                         </div>
                         <div class='section feilds'>
                             <label for=''>Subject</label><br>
-                            <input value='$row[subject]' type='subject'>
+                            <input value='$row[subject]' type='subject' name='subject'>
                         </div>
                         <div class='section feilds'>
                             <label for=''>Email</label><br>
@@ -145,12 +145,13 @@ if(!isset($_SESSION['username'])){
 <?php
 if(isset($_POST['submit'])){
       include_once '../../db_connect.php';
-      $sql = "UPDATE teachers SET first_name =?, last_name =?, class_number =?, section =? , gender =?, date_of_birth =?, `subject`='[value-8]',`email`='[value-9]',`phone_number`='[value-10]',`adress`='[value-11]',`joining_date`='[value-12]',`photo_path`='[value-13]',`account_password`='[value-14]' WHERE 1";
+      // $idzaka = $_GET['id'];
+      $sql = "UPDATE teachers SET first_name =?, last_name =?, class_number =?, section =? , gender =?, date_of_birth =?, subject=?, email=?, phone_number=?, adress =?, joining_date =?, account_password = ? WHERE teacher_id =?";
       $res = $cone->prepare($sql);
 
-      $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_FILES['photo_path']['name'], $_POST['accountpassword']));
+      $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_POST['accountpassword'], $_GET['id']));
       if($res){
-        echo 'the theacher '.$_POST['first_name'].'is added succefully';
+        echo 'teacher modified suceffuly';
       }
     }
 
