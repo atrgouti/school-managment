@@ -100,7 +100,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Date of birth</label><br>
-                    <input type="date" placeholder="dd/mm/yyy" name='student_gender'>
+                    <input type="date" placeholder="dd/mm/yyy" name='student_date_of_birth'>
                 </div>
                 <div class="section feilds">
                     <label for="">Email</label><br>
@@ -112,44 +112,44 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file" name='student_p'>
+                    <input type="file" name='student_photo'>
                 </div>
             <p style='margin-left:20px; width:100%;'>Parents information</p>
                 <div class="name feilds">
                     <label for="">Father Name</label><br>
-                    <input type="text" name='Father_Name''>
+                    <input type="text" name='father_name'>
                 </div>
                 <div class="last feilds">
                     <label for="">Mother Name</label><br>
-                    <input type="text">
+                    <input type="text" name='mother_name'>
                 </div>
                 <div class="class feilds">
                     <label for="">Father occupation</label><br>
-                    <input type="text">
+                    <input type="text" name='father_occupation'>
                 </div>
                 <div class="class feilds">
                     <label for="">Mother occupation</label><br>
-                    <input type="text">
+                    <input type="text" name='mother_occupation'>
                 </div>
                 <div class="class feilds">
                     <label for="">Phone Number</label><br>
-                    <input type="text">
+                    <input type="text" name='phone_number'>
                 </div>
                 <div class="class feilds">
                     <label for="">Nationality</label><br>
-                    <input type="text">
+                    <input type="text" name='nationality'>
                 </div>
                 <div class="class feilds">
                     <label for="">Present Adress</label><br>
-                    <input type="text">
+                    <input type="text" name='present_adress'>
                 </div>
                 <div class="class feilds">
                     <label for="">Premenant Adress</label><br>
-                    <input type="text">
+                    <input type="text" name='premenant_adress'>
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
-                    <input type="file">
+                    <input type="file" name='parent_photo'>
                 </div>
                 <div class="section feilds">
                 </div>
@@ -160,7 +160,28 @@ if(!isset($_SESSION['username'])){
     </main> 
 </div>
 
+<?php
+if(isset($_POST['submit'])){
+  $image_student_place = $_FILES['student_photo']['tmp_name'];
+  $image_student_name = $_FILES['student_photo']['name'];
+  $image_student_error = $_FILES['student_photo']['error'];
 
+  $image_parent_place = $_FILES['parent_photo']['tmp_name'];
+  $image_parent_name = $_FILES['parent_photo']['name'];
+  $image_parent_error = $_FILES['parent_photo']['error'];
+  if($image_student_error === 0 && $image_parent_error == 0){
+    move_uploaded_file($image_student_place, 'studentPhotos/'.$image_student_name);
+    move_uploaded_file($image_parent_place, 'parentPhotos/'.$image_parent_name);
+    include_once '../../db_connect.php';
+    $sql = 'INSERT INTO teachers(first_name, last_name, class_number, section, gender, date_of_birth , subject, email, phone_number, adress, joining_date, photo_path, account_password) Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    $res = $cone->prepare($sql);
+    $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_FILES['photo_path']['name'], $_POST['accountpassword']));
+    if($res){
+      echo 'the theacher '.$_POST['first_name'].'is added succefully';
+    }
+  }
+}
+?>
 <script src="addStudent.js"></script>
 
 </body>
