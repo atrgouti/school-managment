@@ -78,22 +78,31 @@ if(!isset($_SESSION['username'])){
                     <input type="text" name='student_lastname'>
                 </div>
                 <div class="class feilds">
-                    <label for="">Class Name</label><br>
-                    <input type="text" name='student_classnumber'>
+                    <label for="">Class Number</label><br>
+                    <select name="student_classnumber" id="">
+                      <option value='' disabled selected></option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Section</label><br>
                     <select name="student_section" id="">
-                      <option value="">A</option>
-                      <option value="">B</option>
-                      <option value="">C</option>
-                      <option value="">D</option>
-                      <option value="">E</option>
+                      <option value='' disabled selected></option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
                     </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Gender</label><br>
                     <select name="student_gender" id="">
+                      <option value='' disabled selected></option>
                       <option value="">Male</option>
                       <option value="">Famale</option>
                     </select>
@@ -109,6 +118,23 @@ if(!isset($_SESSION['username'])){
                 <div class="section feilds">
                     <label for="">Account password</label><br>
                     <input type="password" name='student_account_pass'>
+                </div>
+                <div class="section feilds">
+                    <label for="">Choose a teacher</label><br>
+                    <select name="student_section" id="" required>
+                      <option value='' disabled selected></option>
+                      <?php
+                        include_once '../../db_connect.php';
+                        $sqlteacher = "SELECT * FROM teachers";
+                        $resteahcher = $cone->prepare($sqlteacher);
+                        $resteahcher->execute();
+                        while($rowteacher = $resteahcher->fetch()){
+                          echo "
+                          <option value='$rowteacher[teacher_id]'>$rowteacher[first_name] $rowteacher[last_name]</option>
+                          ";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="section feilds">
                     <label for="">Upload teacher photo(150px * 150px)</label><br>
