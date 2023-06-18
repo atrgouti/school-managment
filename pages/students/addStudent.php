@@ -68,7 +68,7 @@ if(!isset($_SESSION['username'])){
         </header>
         <div class="content">
             <p style='margin-left:20px;'>Student information</p>
-            <form action="process.php" method='post' class="studentFrom" id='form1'>
+            <form action="process.php" method='post' class="studentFrom" id='form1' enctype="multipart/form-data">
                 <div class="name feilds">
                     <label for="">First Name</label><br>
                     <input type="text" name='student_firstname'>
@@ -103,8 +103,8 @@ if(!isset($_SESSION['username'])){
                     <label for="">Gender</label><br>
                     <select name="student_gender" id="">
                       <option value='' disabled selected></option>
-                      <option value="">Male</option>
-                      <option value="">Famale</option>
+                      <option value="Male">Male</option>
+                      <option value="Famale">Famale</option>
                     </select>
                 </div>
                 <div class="section feilds">
@@ -199,11 +199,11 @@ if(isset($_POST['submit'])){
     move_uploaded_file($image_student_place, 'studentPhotos/'.$image_student_name);
     move_uploaded_file($image_parent_place, 'parentPhotos/'.$image_parent_name);
     include_once '../../db_connect.php';
-    $sql = 'INSERT INTO teachers(first_name, last_name, class_number, section, gender, date_of_birth , subject, email, phone_number, adress, joining_date, photo_path, account_password) Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-    $res = $cone->prepare($sql);
-    $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_FILES['photo_path']['name'], $_POST['accountpassword']));
-    if($res){
-      echo 'the theacher '.$_POST['first_name'].'is added succefully';
+    $sqlparent = 'INSERT INTO parents(father_name, mother_name, father_occupation, mother_occupation, phone_num, nationality, present_adress, temporary_adress, photo_path) Values(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    $resparent = $cone->prepare($sqlparent);
+    $resparent->execute(array($_POST['father_name'], $_POST['mother_name'], $_POST['father_occupation'], $_POST['mother_occupation'], $_POST['phone_nummber'], $_POST['nationality'], $_POST['present_adress'], $_POST['premenant_adress'], $image_parent_name));
+    if($resparent){
+      echo 'tnice added';
     }
   }
 }
