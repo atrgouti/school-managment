@@ -1,4 +1,5 @@
 <?php
+  include '../../db_connect.php';
 session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
@@ -68,7 +69,7 @@ if(!isset($_SESSION['username'])){
         </header>
         <div class="content">
             <p style='margin-left:20px;'>Student information</p>
-            <form action="process.php" method='post' class="studentFrom" id='form1' enctype="multipart/form-data">
+            <form action="" method='post' class="studentFrom" id='form1' enctype="multipart/form-data">
                 <div class="name feilds">
                     <label for="">First Name</label><br>
                     <input type="text" name='student_firstname'>
@@ -79,8 +80,8 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="class feilds">
                     <label for="">Class Number</label><br>
-                    <select name="student_classnumber" id="">
-                      <option value='' disabled selected></option>
+                    <select name="student_classnumber">
+                      <option value='no' disabled selected></option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -91,7 +92,7 @@ if(!isset($_SESSION['username'])){
                 <div class="section feilds">
                     <label for="">Section</label><br>
                     <select name="student_section" id="">
-                      <option value='' disabled selected></option>
+                      <option value='no' disabled selected></option>
                       <option value="A">A</option>
                       <option value="B">B</option>
                       <option value="C">C</option>
@@ -124,7 +125,6 @@ if(!isset($_SESSION['username'])){
                     <select name="student_section" id="" required>
                       <option value='' disabled selected></option>
                       <?php
-                        include_once '../../db_connect.php';
                         $sqlteacher = "SELECT * FROM teachers";
                         $resteahcher = $cone->prepare($sqlteacher);
                         $resteahcher->execute();
@@ -137,7 +137,7 @@ if(!isset($_SESSION['username'])){
                     </select>
                 </div>
                 <div class="section feilds">
-                    <label for="">Upload teacher photo(150px * 150px)</label><br>
+                    <label for="">Upload student photo(150px * 150px)</label><br>
                     <input type="file" name='student_photo'>
                 </div>
             <p style='margin-left:20px; width:100%;'>Parents information</p>
@@ -179,7 +179,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                 </div>
-                <button class="submit" type='submit'>Add teacher</button>
+                <button class="submit" type='submit' name='submit'>Add teacher</button>
                 <button onclick="resetAllInputs()"  type="reset" class="reset">Reset</button>
             </form>
         </div>
@@ -195,15 +195,28 @@ if(isset($_POST['submit'])){
   $image_parent_place = $_FILES['parent_photo']['tmp_name'];
   $image_parent_name = $_FILES['parent_photo']['name'];
   $image_parent_error = $_FILES['parent_photo']['error'];
-  if($image_student_error === 0 && $image_parent_error == 0){
+  if($image_parent_error == 0 && $image_student_error == 0){
     move_uploaded_file($image_student_place, 'studentPhotos/'.$image_student_name);
     move_uploaded_file($image_parent_place, 'parentPhotos/'.$image_parent_name);
-    include_once '../../db_connect.php';
+    // inserting parent information first becouse of the forigen key 
     $sqlparent = 'INSERT INTO parents(father_name, mother_name, father_occupation, mother_occupation, phone_num, nationality, present_adress, temporary_adress, photo_path) Values(?, ?, ?, ?, ?, ?, ?, ?, ?)';
     $resparent = $cone->prepare($sqlparent);
-    $resparent->execute(array($_POST['father_name'], $_POST['mother_name'], $_POST['father_occupation'], $_POST['mother_occupation'], $_POST['phone_nummber'], $_POST['nationality'], $_POST['present_adress'], $_POST['premenant_adress'], $image_parent_name));
-    if($resparent){
-      echo 'tnice added';
+    $resparent->execute(array($_POST['father_name'], $_POST['mother_name'], $_POST['father_occupation'], $_POST['mother_occupation'], $_POST['phone_number'], $_POST['nationality'], $_POST['present_adress'], $_POST['premenant_adress'], $image_parent_name));
+
+    // select the father id to add it as forigen in student id 
+    $sqlgetid = 'SELECT parent_id FROM parents WHERE father_name=? AND mother_name=?';
+    $resgetid = $cone->prepare($sqlgetid);
+    $resgetid->execute(array($_POST['father_name'], $_POST['mother_name']));
+    while($row = $resgetid->fetch()){
+      $myidddd = $row['parent_id'];
+    }
+
+    $studi = "INSERT INTO students(first_name, last_name, class_number, section, gender, date_of_birth, email, photo_path, account_pass, parent_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $studeres = $cone->prepare($studi);
+    $studeres->execute(array($_POST['student_firstname'], $_POST['student_lastname'], $_POST['student_classnumber'], $_POST['student_section'], $_POST['student_gender'], $_POST['student_date_of_birth'], $_POST['student_email'], $_FILES['student_photo'], $_POST['student_account_pass'], $myidddd));
+
+    if($studi){
+      echo 'nice everyhing is up to date';
     }
   }
 }
