@@ -213,7 +213,7 @@ if(isset($_POST['submit'])){
 
     $studi = "INSERT INTO students(first_name, last_name, class_number, section, gender, date_of_birth, email, photo_path, account_pass, parent_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $studeres = $cone->prepare($studi);
-    $studeres->execute(array($_POST['student_firstname'], $_POST['student_lastname'], $_POST['student_classnumber'], $_POST['student_section'], $_POST['student_gender'], $_POST['student_date_of_birth'], $_POST['student_email'], $_FILES['student_photo'], $_POST['student_account_pass'], $myidddd));
+    $studeres->execute(array($_POST['student_firstname'], $_POST['student_lastname'], $_POST['student_classnumber'], $_POST['student_section'], $_POST['student_gender'], $_POST['student_date_of_birth'], $_POST['student_email'], $image_student_name, $_POST['student_account_pass'], $myidddd));
 
     if($studi){
       echo 'nice everyhing is up to date';
