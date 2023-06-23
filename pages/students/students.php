@@ -1,4 +1,5 @@
 <?php
+include '../../db_connect.php';
 session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
@@ -72,91 +73,53 @@ if(!isset($_SESSION['username'])){
           <tr>
             <th>Id</th>
             <th>Photo</th>
-            <th>Name</th>
+            <th>Full Name</th>
             <th>Gender</th>
             <th>Parents Name</th>
             <th>Class</th>
             <th>Section</th>
-            <th>Adress</th>
             <th>Date of birth</th>
-            <th>Mobile number</th>
             <th>E-Mail</th>
+            <th>Teacher's Name</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody class='tbody'>
-          <tr>
-            <td>1</td>
-            <td><img src="../photos/kid1.jpg" alt=""></td>
-            <td>Bilal</td>
-            <td>Male</td>
-            <td>Ahmed</td>
-            <td>A</td>
-            <td>C</td>
-            <td>Hay El Amal</td>
-            <td>2005/5/15</td>
-            <td>0614598765</td>
-            <td>btrgouti@gmail.com</td>
-            <td>
-              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><img src="../photos/kids2.jpg" alt=""></td>
-            <td>Aya</td>
-            <td>famale</td>
-            <td>Khalid</td>
-            <td>D</td>
-            <td>B</td>
-            <td>Hay El Saada</td>
-            <td>2003/7/20</td>
-            <td>0679854236</td>
+          <?php
+          $sql = "SELECT * FROM students";
+          $sqlres = $cone->prepare($sql);
+          $sqlres->execute();
+          while($rowibo = $sqlres->fetch()){
+            // this function to get fathers name 
+            $getparentsql = 'SELECT father_name FROM parents WHERE parent_id=?';
+            $resparent = $cone->prepare($getparentsql);
+            $resparent->execute(array($rowibo['parent_id']));
+            while($parintonamo = $resparent->fetch()){
+              $theparent = $parintonamo['father_name'];
+            }
+
+            //this function to get teachers name from education 
+            echo "
+            <tr>
+            <td>$rowibo[student_id]</td>
+            <td><img src='studentPhotos/$rowibo[photo_path]' alt=''></td>
+            <td>$rowibo[first_name] $rowibo[last_name]</td>
+            <td>$rowibo[gender]</td>
+            <td>$theparent</td>
+            <td>$rowibo[class_number]</td>
+            <td>$rowibo[section]</td>
+            <td>$rowibo[date_of_birth]</td>
+            <td>$rowibo[email]</td>
             <td>hanan2876@gmail.com</td>
             <td>
-              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
+              <button><a href='viewStudent.php'><img src='../photos/eye.png' alt=''></a></button>
+              <button><a href='#'><img src='../photos/edit.png' alt=''></a></button>
+              <button><a href='#'><img src='../photos/delete.png' alt=''></a></button>
             </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><img src="../photos/kid1.jpg" alt=""></td>
-            <td>Aya</td>
-            <td>famale</td>
-            <td>Ismail</td>
-            <td>D</td>
-            <td>B</td>
-            <td>Hay El Saada</td>
-            <td>2003/7/20</td>
-            <td>0679854236</td>
-            <td>hanan2876@gmail.com</td>
-            <td>
-              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><img src="../photos/kid3.jpg" alt=""></td>
-            <td>Bilal</td>
-            <td>Male</td>
-            <td>Youssef</td>
-            <td>A</td>
-            <td>C</td>
-            <td>Hay El Amal</td>
-            <td>2005/5/15</td>
-            <td>0614598765</td>
-            <td>btrgouti@gmail.com</td>
-            <td>
-              <button><a href="viewStudent.php"><img src="../photos/eye.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/edit.png" alt=""></a></button>
-              <button><a href="#"><img src="../photos/delete.png" alt=""></a></button>
-            </td>
-          </tr>
+            </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
   </main>

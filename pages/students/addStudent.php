@@ -122,7 +122,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                     <label for="">Choose a teacher</label><br>
-                    <select name="student_section" id="" required>
+                    <select name="teacher_id" id="" required>
                       <option value='' disabled selected></option>
                       <?php
                         $sqlteacher = "SELECT * FROM teachers";
@@ -211,11 +211,26 @@ if(isset($_POST['submit'])){
       $myidddd = $row['parent_id'];
     }
 
+    //insert student into students table
     $studi = "INSERT INTO students(first_name, last_name, class_number, section, gender, date_of_birth, email, photo_path, account_pass, parent_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
     $studeres = $cone->prepare($studi);
     $studeres->execute(array($_POST['student_firstname'], $_POST['student_lastname'], $_POST['student_classnumber'], $_POST['student_section'], $_POST['student_gender'], $_POST['student_date_of_birth'], $_POST['student_email'], $image_student_name, $_POST['student_account_pass'], $myidddd));
+  
+    // select the student id to add it the education
+        $sqlgetid2 = 'SELECT student_id FROM students WHERE first_name=? AND last_name=?';
+        $resgetid2 = $cone->prepare($sqlgetid2);
+        $resgetid2->execute(array($_POST['student_firstname'], $_POST['student_lastname']));
+        while($parentRow = $resgetid2->fetch()){
+          $studantidu = $parentRow['student_id'];
+        }
 
-    if($studi){
+
+    //insert into education table the id of student and teacher
+    $education ="INSERT INTO education(student_id, teacher_id) VALUES(?, ?)";
+    $resEducation = $cone->prepare($education);
+    $resEducation->execute(array($studantidu, $_POST['teacher_id']));
+
+    if($resEducation){
       echo 'nice everyhing is up to date';
     }
   }
