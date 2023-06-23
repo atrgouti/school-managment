@@ -76,7 +76,6 @@ if(!isset($_SESSION['username'])){
             <th>Mother's Name</th>
             <th>Father's Occupation</th>
             <th>Adress</th>
-            <th>Email</th>
             <th>Kids</th>
             <th>Kids Name</th>
             <th>Mobile number</th>
@@ -85,8 +84,44 @@ if(!isset($_SESSION['username'])){
         </thead>
         <tbody class='tbody'>
           <?php
-          $sql = "SELECT * FROM parents";
-          $res = $sql->prepare($sql);
+          include_once '../../db_connect.php';
+          $sqlll = "SELECT * FROM parents";
+          $res = $cone->prepare($sqlll);
+          $res->execute();
+          while($row = $res->fetch()){
+              $sqlstudent = 'SELECT COUNT(*) AS student FROM students WHERE parent_id=?';
+              $resstudent = $cone->prepare($sqlstudent);
+              $resstudent->execute(array($row['parent_id']));
+              while($numstudent = $resstudent->fetch()){
+                $_SESSION['countstudent'] = $numstudent['student'];
+              }
+
+              //THIS FUNCTION TO GET STUDENT NAME
+              $getnamu = 'SELECT first_name FROM students WHERE parent_id =?';
+              $resnamu = $cone->prepare($getnamu);
+              $resnamu->execute(array($row['parent_id']));
+              while($rowii = $resnamu->fetch()){
+                $studentName = $rowii['first_name'];
+              }
+
+            
+            echo "
+            <tr>
+            <td>$row[parent_id]</td>
+            <td><img src='../students/parentPhotos/$row[photo_path]' alt=''></td>
+            <td>$row[father_name]</td>
+            <td>$row[mother_name]</td>
+            <td>$row[father_occupation]</td>
+            <td>$row[present_adress]</td>
+            <td>$_SESSION[countstudent]</td>
+            <td>$studentName</td>
+            <td>$row[phone_num]</td>
+            <td>
+              <button><a href='viewparent.php'><img src='../photos/eye.png' alt=''></a></button>
+            </td>
+            </tr>
+            ";
+          }
           
           ?>
 

@@ -1,8 +1,10 @@
 <?php
+include '../../db_connect.php';
 session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,58 +65,59 @@ if(!isset($_SESSION['username'])){
   </div>
   <main>
         <header>
-        <p class="all">Bilal Details</p>
+        <div class="mix" style='display: flex; justify-content: space-between; align-items: center;'>
+          <p class="all">Bilal Details</p>
+          <a href="./students.php" class='return'>Return</a>
+        </div>
         <hr>
         </header>
         <div class="infos">
-          <img src="../photos/kid1.jpg" alt="">
-          <table>
-            <tr>
-              <td>ID:</td>
-              <td>Bilal Lakhchin</td>
-            </tr>
-            <tr>
-              <td>Gender:</td>
-              <td>Male</td>
-            </tr>
-            <tr>
-              <td>Father's name:</td>
-              <td>Abdo</td>
-            </tr>
-            <tr>
-              <td>Mother's name:</td>
-              <td>Fatime</td>
-            </tr>
-            <tr>
-              <td>Class:</td>
-              <td>A</td>
-            </tr>
-            <tr>
-              <td>Section</td>
-              <td>C</td>
-            </tr>
-            <tr>
-              <td>Class:</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>Adress:</td>
-              <td>Hay el amal el gharbi</td>
-            </tr>
-            <tr>
-              <td>Date of birth:</td>
-              <td>15/05/2002</td>
-            </tr>
-            <tr>
-              <td>Mobile number:</td>
-              <td>0659742365</td>
-            </tr>
-            <tr>
-              <td>E-Mail:</td>
-              <td>btrgouti@gmail.com</td>
-            </tr>
+          <?php
+          $studentsql = 'SELECT * FROM students WHERE student_id=?';
+          $studentres = $cone->prepare($studentsql);
+          $studentres->execute(array($_GET['id']));
+          while($row = $studentres->fetch()){
+            echo "
+            <img src='studentPhotos/$row[photo_path]'>
+            <table>
+              <tr>
+                <td>ID:</td>
+                <td>$row[student_id]</td>
+              </tr>
+              <tr>
+                <td>First Name</td>
+                <td>$row[first_name]</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>$row[last_name]</td>
+              </tr>
+              <tr>
+                <td>Class Number</td>
+                <td>$row[class_number]</td>
+              </tr>
+              <tr>
+                <td>Section</td>
+                <td>$row[section]</td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>$row[gender]</td>
+              </tr>
+              <tr>
+                <td>Date of birth:</td>
+                <td>$row[date_of_birth]</td>
+              </tr>
+              <tr>
+                <td>email</td>
+                <td>$row[email]</td>
+              </tr>
 
-          </table>
+            </table>
+            ";
+          }
+          ?>
+  
         </div>
   </main>
 

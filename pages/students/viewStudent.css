@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,23 +10,22 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(204, 204, 204); 
+  background: rgb(204, 204, 204);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(97, 97, 97); 
+  background: rgb(97, 97, 97);
 }
 
-
 body {
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,58 +133,61 @@ body {
 }
 
 /* start working on the page  */
-.container{
-    width: 90%;
-    height: 95%;
-    margin-top: 38px;
-    margin-bottom: 30px;
-  }
-  
-  .container .home{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 13px 0px;
-  }
-  .container .home img{
-    height: 40px;
-    padding-right: 20px;
-  }
-  .container .home p{
-    /* padding-top: 10px;
+.container {
+  width: 90%;
+  height: 95%;
+  margin-top: 38px;
+  margin-bottom: 30px;
+}
+
+.container .home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 13px 0px;
+}
+.container .home img {
+  height: 40px;
+  padding-right: 20px;
+}
+.container .home p {
+  /* padding-top: 10px;
     padding-bottom: 10px; */
-      padding-left: 20px;
-      font-weight: bold;
-  }
+  padding-left: 20px;
+  font-weight: bold;
+}
 
+main {
+  width: 100%;
+  background-color: white;
+}
+main .all {
+  padding-top: 20px;
+  padding-left: 20px;
+  font-weight: bold;
+}
+main .mix .return {
+  padding-right: 20px;
+  padding-top: 20px;
+  text-decoration: none;
+  color: red;
+}
 
-  main{
-    width: 100%;
-    background-color: white;
-  }
-  main .all{
-    padding-top: 20px;
-    padding-left: 20px;
-    font-weight: bold;
-  }
-
-
-
-  /* working on the teacher infos page */
+/* working on the teacher infos page */
 
 main .infos {
   margin: 20px;
   display: flex;
 }
-main .infos table{
+main .infos table {
   margin-left: 20px;
   margin-bottom: 20px;
 }
-main .infos table td{
+main .infos table td {
   padding: 10px;
 }
-main .infos img{
+main .infos img {
   height: 250px;
   width: 250px;
 }
