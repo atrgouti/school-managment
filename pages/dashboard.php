@@ -10,6 +10,23 @@ $resTeacher->execute();
 while($numteachers = $resTeacher->fetch()){
   $_SESSION['numTeacher'] = $numteachers['teacher'];
 }
+
+include_once '../db_connect.php';
+$sqlstudent = 'SELECT COUNT(*) AS student FROM students';
+$resstudent = $cone->prepare($sqlstudent);
+$resstudent->execute();
+while($numstudent = $resstudent->fetch()){
+  $_SESSION['numStudent'] = $numstudent['student'];
+}
+
+
+include_once '../db_connect.php';
+$sqlParent = 'SELECT COUNT(*) AS parent FROM parents';
+$resparent = $cone->prepare($sqlParent);
+$resparent->execute();
+while($numParent = $resparent->fetch()){
+  $_SESSION['numParent'] = $numParent['parent'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +58,7 @@ while($numteachers = $resTeacher->fetch()){
       <p>Students</p>
     </span>
     <div class="line"></div>
-    <h1 data-val="200" class="nums">000</h1>
+    <h1 data-val="<?php echo $_SESSION['numStudent']; ?>" class="nums">000</h1>
   </div>
 
 
@@ -61,7 +78,7 @@ while($numteachers = $resTeacher->fetch()){
       <p>Parents</p>
     </span>
     <div class="line"></div>
-    <h1 class="nums" data-val="200">000</h1>
+    <h1 class="nums" data-val="<?php echo $_SESSION['numParent'] ?>">000</h1>
   </div>
 
 
