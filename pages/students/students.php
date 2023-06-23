@@ -98,7 +98,24 @@ if(!isset($_SESSION['username'])){
               $theparent = $parintonamo['father_name'];
             }
 
-            //this function to get teachers name from education 
+            //this function to get teachers id from education 
+            $educationsql = "SELECT teacher_id FROM education WHERE student_id=?";
+            $reseducation = $cone->prepare($educationsql);
+            $reseducation->execute(array($rowibo["student_id"]));
+            while($idvalue = $reseducation->fetch()){
+              $teacherId = $idvalue['teacher_id'];
+            }
+
+            
+            // this function to get teachers name from teachers 
+            $teachersql = "SELECT first_name FROM teachers WHERE teacher_id=?";
+            $teacherresult = $cone->prepare($teachersql);
+            $teacherresult->execute(array($teacherId));
+            while($teacherRow = $teacherresult->fetch()){
+              $teacherFirstName = $teacherRow['first_name'];
+            }
+
+            
             echo "
             <tr>
             <td>$rowibo[student_id]</td>
@@ -110,7 +127,7 @@ if(!isset($_SESSION['username'])){
             <td>$rowibo[section]</td>
             <td>$rowibo[date_of_birth]</td>
             <td>$rowibo[email]</td>
-            <td>hanan2876@gmail.com</td>
+            <td>$teacherFirstName</td>
             <td>
               <button><a href='viewStudent.php'><img src='../photos/eye.png' alt=''></a></button>
               <button><a href='#'><img src='../photos/edit.png' alt=''></a></button>

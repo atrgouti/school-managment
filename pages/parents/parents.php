@@ -84,21 +84,12 @@ if(!isset($_SESSION['username'])){
           </tr>
         </thead>
         <tbody class='tbody'>
-          <tr>
-            <td>1</td>
-            <td><img src="../photos/father.jpg" alt=""></td>
-            <td>Abdolah</td>
-            <td>Fatima</td>
-            <td>Dentist</td>
-            <td>Hay el amal</td>
-            <td>btrgouti@gmail.co</td>
-            <td>1</td>
-            <td>Bilal</td>
-            <td>0614598765</td>
-            <td>
-              <button><a href="viewparent.php"><img src="../photos/eye.png" alt=""></a></button>
-            </td>
-          </tr>
+          <?php
+          $sql = "SELECT * FROM parents";
+          $res = $sql->prepare($sql);
+          
+          ?>
+
         </tbody>
       </table>
   </main>
