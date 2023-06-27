@@ -64,7 +64,10 @@ if(!isset($_SESSION['username'])){
   </div>
   <main>
         <header>
-        <p class="all">Add student form</p>
+        <div class="splayo">
+          <p class="all">Add Student</p>
+          <p><a href="students.php">return</a></p>
+        </div>
         <hr>
         </header>
         <div class="content">
@@ -179,7 +182,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class="section feilds">
                 </div>
-                <button class="submit" type='submit' name='submit'>Add teacher</button>
+                <button class="submit" type='submit' name='submit'>Add Student</button>
                 <button onclick="resetAllInputs()"  type="reset" class="reset">Reset</button>
             </form>
         </div>
