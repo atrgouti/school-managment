@@ -8,7 +8,7 @@ $sqlteacher = 'SELECT COUNT(*) AS teacher FROM teachers';
 $resTeacher = $cone->prepare($sqlteacher);
 $resTeacher->execute();
 while($numteachers = $resTeacher->fetch()){
-  $_SESSION['numTeacher'] = $numteachers['teacher'];
+  $_SESSION['numTeacher'] = $numteachers['teacher'] - 1;
 }
 
 include_once '../db_connect.php';

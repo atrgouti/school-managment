@@ -130,8 +130,8 @@ if(!isset($_SESSION['username'])){
             <td>$teacherFirstName</td>
             <td>
               <button><a href='viewStudent.php?id=$rowibo[student_id]&id2=$rowibo[parent_id]'><img src='../photos/eye.png' alt=''></a></button>
-              <button><a href='#'><img src='../photos/edit.png' alt=''></a></button>
-              <button><a href='#'><img src='../photos/delete.png' alt=''></a></button>
+              <button><a href=''><img src='../photos/edit.png' alt=''></a></button>
+              <button><a href='deleteStudent.php?id=$rowibo[student_id]&id2=$rowibo[parent_id]'><img src='../photos/delete.png' alt=''></a></button>
             </td>
             </tr>
             ";

@@ -87,7 +87,7 @@ if(!isset($_SESSION['username'])){
         <tbody class='tbody'>
           <?php
           include_once '../../db_connect.php';
-          $sql = "SELECT * FROM teachers";
+          $sql = "SELECT * FROM teachers WHERE teacher_id <> 0;";
           $res = $cone->prepare($sql);
           $res->execute();
           while($row = $res->fetch()){

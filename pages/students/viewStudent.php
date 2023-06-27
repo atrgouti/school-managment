@@ -77,6 +77,7 @@ if(!isset($_SESSION['username'])){
           $studentres = $cone->prepare($studentsql);
           $studentres->execute(array($_GET['id']));
           while($row = $studentres->fetch()){
+            $_SESSION['kidsName'] = $row['first_name'];
             echo "
             <img src='studentPhotos/$row[photo_path]'>
             <table>
@@ -118,6 +119,60 @@ if(!isset($_SESSION['username'])){
           }
           ?>
   
+        </div>
+        <hr>
+        <p class="all"><?php echo $_SESSION['kidsName']."'s Father"?></p>
+        <div class="infos">
+        <?php
+        $idparent = $_GET['id2'];
+        $parentsql = 'SELECT * FROM parents WHERE parent_id=?';
+        $parentres = $cone->prepare($parentsql);
+        $parentres->execute(array($idparent));
+        while($row = $parentres->fetch()){
+          echo"
+          <img src='parentPhotos/$row[photo_path]'>
+            <table>
+              <tr>
+                <td>parent id:</td>
+                <td>$row[parent_id]</td>
+              </tr>
+              <tr>
+                <td>Father Name:</td>
+                <td>$row[father_name]</td>
+              </tr>
+              <tr>
+                <td>Mother Name:</td>
+                <td>$row[mother_name]</td>
+              </tr>
+              <tr>
+                <td>Father Occupation:</td>
+                <td>$row[father_occupation]</td>
+              </tr>
+              <tr>
+                <td>Mother Occupation:</td>
+                <td>$row[mother_occupation]</td>
+              </tr>
+              <tr>
+                <td>Phone Number:</td>
+                <td>$row[phone_num]</td>
+              </tr>
+              <tr>
+                <td>Nationality:</td>
+                <td>$row[nationality]</td>
+              </tr>
+              <tr>
+                <td>Present Adress:</td>
+                <td>$row[present_adress]</td>
+              </tr>
+              <tr>
+                <td>Temporary Adress:</td>
+                <td>$row[temporary_adress]</td>
+              </tr>
+            </table>
+          ";
+        }
+        ?>
+    
         </div>
   </main>
 
