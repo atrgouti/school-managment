@@ -50,7 +50,7 @@ if(!isset($_SESSION['username'])){
           </li>
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
-          <li><a href="#">Recent</a></li> 
+          <li><a href="../recentActivities/recent.php">Recent</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -131,7 +131,7 @@ if(!isset($_SESSION['username'])){
             <td>
               <button><a href='viewStudent.php?id=$rowibo[student_id]&id2=$rowibo[parent_id]'><img src='../photos/eye.png' alt=''></a></button>
               <button><a href='modifierStudent.php?id=$rowibo[student_id]&id2=$rowibo[parent_id]'><img src='../photos/edit.png' alt=''></a></button>
-              <button><a href='deleteStudent.php?id=$rowibo[student_id]&id2=$rowibo[parent_id]'><img src='../photos/delete.png' alt=''></a></button>
+              <button onClick='confirmDelete()'><a href='deleteStudent.php?id=$rowibo[student_id]&id2=$rowibo[parent_id]'><img src='../photos/delete.png' alt=''></a></button>
             </td>
             </tr>
             ";

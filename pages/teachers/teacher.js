@@ -21,7 +21,7 @@ let tr = tbody.getElementsByTagName("tr");
 // }
 for (let i = 0; i < tr.length; i++) {
   let td = tr[i].getElementsByTagName("td")[3];
-  if (td.textContent === "Male") {
+  if (td.textContent === "Male" || td.textContent === "male") {
     tr[i].style.backgroundColor = "#ADD8E6";
   } else {
     tr[i].style.backgroundColor = "pink";

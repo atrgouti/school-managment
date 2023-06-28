@@ -12,12 +12,10 @@ close_btn.addEventListener("click", () => {
 
 let tbody = document.querySelector(".tbody");
 let tr = tbody.getElementsByTagName("tr");
-
 for (let i = 0; i < tr.length; i++) {
-  let td = tr[i].getElementsByTagName("td")[3];
-  if (td.textContent === "Male") {
-    tr[i].style.backgroundColor = "#ADD8E6";
+  if (i % 2 === 0) {
+    tr[i].style.backgroundColor = "";
   } else {
-    tr[i].style.backgroundColor = "pink";
+    tr[i].style.backgroundColor = "#D3D3D3";
   }
 }

@@ -50,7 +50,7 @@ if(!isset($_SESSION['username'])){
           </li>
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php ">Meetings</a></li>
-          <li><a href="#">Recent</a></li> 
+          <li><a href="../recentActivities/recent.php">Recent</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -164,6 +164,19 @@ if(isset($_POST['submit'])){
     if($image_error === 0){
       move_uploaded_file($image_place, 'teacherPhotos/'.$image_name);
       include_once '../../db_connect.php';
+
+      //insert activity  in activities table
+      $currentDate = date('Y-m-d');
+      $title = 'Added new Teacher';
+      $decription = "You added a new Teacher called " . $_POST['first_name'] .' '. $_POST['last_name'];
+      $currentTime = date('H:i:s');
+
+      $sqlActivities = 'INSERT INTO `activities`(`datee`, `title`, `description`, `timee`) VALUES (?, ?, ?, ?)';
+      $resActivities = $cone->prepare($sqlActivities);
+      $resActivities->execute(array($currentDate, $title, $decription, $currentTime));
+      //sasasasasasasas
+
+
       $sql = 'INSERT INTO teachers(first_name, last_name, class_number, section, gender, date_of_birth , subject, email, phone_number, adress, joining_date, photo_path, account_password) Values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
       $res = $cone->prepare($sql);
       $res->execute(array($_POST['first_name'], $_POST['last_name'], $_POST['class_number'], $_POST['section'], $_POST['gender'], $_POST['dateofbirth'], $_POST['subject'], $_POST['email'], $_POST['number'], $_POST['adress'], $_POST['joindate'], $_FILES['photo_path']['name'], $_POST['accountpassword']));

@@ -93,9 +93,12 @@ while($numParent = $resparent->fetch()){
 
 
   <div class="calinder">
-    <p class="recent">Recent Activities</p>
+    <div class="displo">
+      <p class="recent">Recent Activities</p>
+      <p><a href="recentActivities/recent.php">View All Activities</a></p>
+    </div>
     <div class="line2"></div><?php
-    $sqlACT = 'SELECT * FROM activities ORDER BY datee DESC';
+    $sqlACT = 'SELECT * FROM activities ORDER BY activity_id DESC LIMIT 15';
     $resACT = $cone->prepare($sqlACT);
     $resACT->execute();
     while($rowACT = $resACT->fetch()){
@@ -116,14 +119,7 @@ while($numParent = $resparent->fetch()){
       $days = floor($timeDifference / (60 * 60 * 24));
 
 
-      // Output the time difference
-        // if ($days >= 1) {
-        //   echo $days . ' day(s)';
-        // } elseif ($hours >= 1) {
-        //     echo $hours . ' hour(s)';
-        // } else {
-        //     echo $minutes . ' minute(s)';
-        // }  
+
     ?>
     <div class='noti test'>
       <div class='left'>
@@ -133,11 +129,11 @@ while($numParent = $resparent->fetch()){
       </div>
       <div class='right'>
         <p class='exact'><?php if ($days >= 1) {
-          echo $days . ' day(s)';
+          echo $days . ' day(s) ago';
         } elseif ($hours >= 1) {
-            echo $hours . ' hour(s)';
+            echo $hours . ' hour(s) ago';
         } else {
-            echo $minutes . ' minute(s)';
+            echo $minutes . ' minute(s) ago';
         }?></p>
       </div>
     </div>
@@ -237,7 +233,7 @@ while($numParent = $resparent->fetch()){
           </li>
           <li><a href="./parents/parents.php">Parents</a></li>
           <li><a href="./meetings/meetings.php">Meetings</a></li>
-          <li><a href="#">Recent</a></li> 
+          <li><a href="./recentActivities/recent.php">Recent</a></li> 
           <li><a href="../logout.php">Logout</a></li>
         </ul>
       </div>

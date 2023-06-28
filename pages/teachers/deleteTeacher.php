@@ -15,5 +15,21 @@ if($resedu){
     }
 }
 
+$sqlname = "SELECT first_name, last_name FROM teachers WHERE teacher_id=?";
+$nameres = $cone->prepare($sqlname);
+$nameres->execute(array($_GET['id']));
+while($za = $nameres->fetch()){
+    $student_firstname = $za['first_name'];
+    $student_lastname = $za['last_name'];
+}
+//insert activity  in activities table
+$currentDate = date('Y-m-d');
+$title = 'Teacher has been deleted';
+$decription = "You deleted a Teacher called " . $student_firstname  .' '. $student_lastname;
+$currentTime = date('H:i:s');
 
+$sqlActivities = 'INSERT INTO `activities`(`datee`, `title`, `description`, `timee`) VALUES (?, ?, ?, ?)';
+$resActivities = $cone->prepare($sqlActivities);
+$resActivities->execute(array($currentDate, $title, $decription, $currentTime));
+//sasasasasasasas
 ?>

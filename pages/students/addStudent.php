@@ -50,7 +50,7 @@ if(!isset($_SESSION['username'])){
           </li>
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
-          <li><a href="#">Recent</a></li> 
+          <li><a href="../recentActivities/recent.php">Recent</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -227,10 +227,10 @@ if(isset($_POST['submit'])){
           $studantidu = $parentRow['student_id'];
         }
 
-    //insert meetings in meetings table
+    //insert activity  in activities table
     $currentDate = date('Y-m-d');
     $title = 'Added new Student';
-    $decription = "You added a new student called " . $_POST['student_firstname'] . $_POST['student_lastname'];;
+    $decription = "You added a new student called " . $_POST['student_firstname'] .' '. $_POST['student_lastname'];;
     $currentTime = date('H:i:s');
 
     $sqlActivities = 'INSERT INTO `activities`(`datee`, `title`, `description`, `timee`) VALUES (?, ?, ?, ?)';

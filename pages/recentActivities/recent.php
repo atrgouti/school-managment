@@ -12,7 +12,7 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="parents.css" />
+  <link rel="stylesheet" href="recent.css" />
   <title>Netflix Mobile Navigation</title>
 </head>
 <body>
@@ -47,9 +47,9 @@ if(!isset($_SESSION['username'])){
               <li><a href="../students/addStudent.php">Add new Student</a></li>
             </ul>
           </li>
-          <li><a href="parents.php">Parents</a></li>
+          <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
-          <li><a href="../recentActivities/recent.php">Recent</a></li> 
+          <li><a href="recent.php">Recent</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -58,80 +58,75 @@ if(!isset($_SESSION['username'])){
 
 
   <div class="home">
-    <p>Home - All Parents List</p>
+    <p>Home - All Recent Activities</p>
     <img src="../photos/ofppt.png" alt="">
   </div>
   <main>
       <header>
-        <p class="all">All Parents</p>
-        
+        <p class="all">All Activities</p>
       </header>
       <hr>
       <table  style='border-collapse: collapse' class="table">
         <thead>
           <tr>
             <th>Id</th>
-            <th>Photo</th>
-            <th>Father's Name</th>
-            <th>Mother's Name</th>
-            <th>Father's Occupation</th>
-            <th>Adress</th>
-            <th>Kids</th>
-            <th>Kids Name</th>
-            <th>Mobile number</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Time</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody class='tbody'>
           <?php
           include_once '../../db_connect.php';
-          $sqlll = "SELECT * FROM parents";
-          $res = $cone->prepare($sqlll);
+          $sql = 'SELECT * FROM activities ORDER BY activity_id DESC';
+          $res = $cone->prepare($sql);
           $res->execute();
           while($row = $res->fetch()){
-              $sqlstudent = 'SELECT COUNT(*) AS student FROM students WHERE parent_id=?';
-              $resstudent = $cone->prepare($sqlstudent);
-              $resstudent->execute(array($row['parent_id']));
-              while($numstudent = $resstudent->fetch()){
-                $_SESSION['countstudent'] = $numstudent['student'];
-              }
+            $currentDateTime = date('Y-m-d H:i:s');
+            $activityDate = $row['datee'];
+            $activityTime = $row['timee'];
 
-              //THIS FUNCTION TO GET STUDENT NAME
-              $getnamu = 'SELECT first_name, student_id FROM students WHERE parent_id =?';
-              $resnamu = $cone->prepare($getnamu);
-              $resnamu->execute(array($row['parent_id']));
-              while($rowii = $resnamu->fetch()){
-                $studentName = $rowii['first_name'];
-                $studentidd = $rowii['student_id'];
-              }
+            // Convert the activity date/time and current date/time to timestamps
+            $activityTimestamp = strtotime($activityDate . ' ' . $activityTime);
+            $currentTimestamp = strtotime($currentDateTime);
 
-            
-            echo "
-            <tr>
-            <td>$row[parent_id]</td>
-            <td><img src='../students/parentPhotos/$row[photo_path]' alt=''></td>
-            <td>$row[father_name]</td>
-            <td>$row[mother_name]</td>
-            <td>$row[father_occupation]</td>
-            <td>$row[present_adress]</td>
-            <td>$_SESSION[countstudent]</td>
-            <td>$studentName</td>
-            <td>$row[phone_num]</td>
-            <td>
-              <button><a href='viewparent.php?id=$row[parent_id]&&id2=$studentidd'><img src='../photos/eye.png' alt=''></a></button>
-            </td>
-            </tr>
-            ";
-          }
-          
+            // Calculate the time difference in seconds
+            $timeDifference = $currentTimestamp - $activityTimestamp;
+
+            // Convert the time difference to the desired format
+            $minutes = floor($timeDifference / 60);
+            $hours = floor($timeDifference / (60 * 60));
+            $days = floor($timeDifference / (60 * 60 * 24));
           ?>
-
+          <tr>
+            <td><?php echo $row['activity_id'] ?></td>
+            <td><?php echo $row['title'] ?></td>
+            <td><?php echo $row['datee'] ?></td>
+            <td><?php echo $row['description'] ?></td>
+            <td><?php if ($days >= 1) {
+          echo $days . ' day(s) ago';
+        } elseif ($hours >= 1) {
+            echo $hours . ' hour(s) ago';
+        } else {
+            echo $minutes . ' minute(s) ago';
+        }?></td>
+            <td>
+                <a href='deleteActivity.php?id=<?php echo $row['activity_id'] ?>'><button>Delete</button></a>
+            </td>
+          </tr>
+          <?php } ?>
         </tbody>
       </table>
   </main>
 
+
 </div>
-  <script src="parents.js"></script>
+
+
+
+  <script src="recent.js"></script>
 </body>
 
 </html>
