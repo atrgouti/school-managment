@@ -91,7 +91,7 @@ if(!isset($_SESSION['username'])){
                 </div>
                 <div class='class feilds'>
                     <label for=''>Class Number</label><br>
-                    <input value='$str[class_number]' student_classnumber' name='student_classnumber'>
+                    <input value='$str[class_number]'  name='student_classnumber'>
                 </div>
                 <div class='section feilds'>
                     <label for=''>Section</label><br>
@@ -121,7 +121,7 @@ if(!isset($_SESSION['username'])){
                 <div class="section feilds">
                     <label for="">Choose a teacher</label><br>
                     <select name="teacher_id" id="" required>
-                      <option value='no teacher' disabled selected>Choose a teacher</option>
+                      <!-- <option value='no teacher' disabled selected>Choose a teacher</option> -->
                       <?php
                       $techo = 'SELECT * FROM teachers WHERE teacher_id <> 0';
                       $resT = $cone->prepare($techo);
@@ -195,7 +195,17 @@ if(isset($_POST['submit'])){
   $resEdu = $cone->prepare($sqlEdu);
   $resEdu->execute(array($_POST['teacher_id'], $_GET['id']));
   if($resEdu){
-    $sqlPar = "UPDATE parents SET father_name=? ,mother_name=?,father_occupation=?,mother_occupation=?,phone_num=?,nationality=?,present_adress=?,temporary_adress=? WHERE parent_id=?";
+    $sqlPar = "UPDATE parents SET father_name=?, mother_name=?, father_occupation=?, mother_occupation=?, phone_num=?, nationality=?, present_adress=?, temporary_adress=? WHERE parent_id=?";
+    $resPar = $cone->prepare($sqlPar);
+    $resPar->execute(array($_POST['father_name'], $_POST['mother_name'], $_POST['father_occupation'], $_POST['mother_occupation'], $_POST['phone_number'], $_POST['nationality'], $_POST['present_adress'], $_POST['premenant_adress'], $_GET['id2']));
+    if($resPar){
+      $sqlStu = "UPDATE students SET first_name= ?,last_name=?, class_number=?, section=?, gender=?, date_of_birth=?, email =?,account_pass=? WHERE student_id=?";
+      $resStu = $cone->prepare($sqlStu);
+      $resStu->execute(array($_POST['student_firstname'], $_POST['student_lastname'], $_POST['student_classnumber'], $_POST['student_section'], $_POST['student_gender'], $_POST['student_date_of_birth'], $_POST['student_email'], $_POST['student_account_pass'], $_GET['id']));
+      if($resStu){
+        echo 'everything is updated';
+      }
+    }
     
   }
 }

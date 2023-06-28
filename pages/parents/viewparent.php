@@ -67,49 +67,52 @@ if(!isset($_SESSION['username'])){
         <hr>
         </header>
         <div class="infos">
-          <img src="../photos/father.jpg" alt="">
+          <?php
+          include_once '../../db_connect.php';
+          $sql = 'SELECT * FROM parents WHERE parent_id=?';
+          $res = $cone->prepare($sql);
+          $res->execute(array($_GET['id']));
+          while($row = $res->fetch()){
+            echo"
+            <img src='../students/parentPhotos/$row[photo_path]' alt=''>
           <table>
             <tr>
               <td>Father's name:</td>
-              <td>Abdo</td>
+              <td>$row[father_name]</td>
             </tr>
             <tr>
               <td>Mother's name:</td>
-              <td>Fatime</td>
+              <td>$row[mother_name]</td>
             </tr>
             <tr>
               <td>Father's Occupation:</td>
-              <td>Dentist</td>
+              <td>$row[father_occupation]</td>
             </tr>
             <tr>
               <td>Mother's Occupation:</td>
-              <td>Teacher</td>
+              <td>$row[mother_occupation]</td>
             </tr>
             <tr>
               <td>Present Adress:</td>
-              <td>Hay el amal</td>
+              <td>$row[present_adress]</td>
             </tr>
             <tr>
               <td>temperary adress:</td>
-              <td>Hay saada</td>
+              <td>$row[temporary_adress]</td>
             </tr>
             <tr>
-              <td>Email:</td>
-              <td>Btrgouti@gmail.com</td>
+              <td>Nationality:</td>
+              <td>$row[nationality]</td>
             </tr>
             <tr>
-              <td>Kids:</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Kid's Name:</td>
-              <td>Bilal</td>
-            </tr>
-            <tr>
-              <td>Phone:</td>
-              <td>+212652983093</td>
+              <td>Phone number:</td>
+              <td>$row[phone_num]</td>
             </tr>
           </table>
+            ";
+          }
+          ?>
+          
         </div>
 
         <header>
@@ -118,45 +121,43 @@ if(!isset($_SESSION['username'])){
         </header>
 
         <div class="infos">
-          <img src="../photos/kid1.jpg" alt="">
+          <?php
+          $sql2 = 'SELECT * FROM students WHERE student_id=?';
+          $res2 = $cone->prepare($sql2);
+          $res2->execute(array($_GET['id2']));
+          while($row2 = $res2->fetch()){
+            echo"
+            <img src='../students/studentPhotos/$row2[photo_path]' alt=''>
           <table>
             <tr>
               <td>Name:</td>
-              <td>Bilal</td>
+              <td>$row2[first_name] $row2[last_name]</td>
             </tr>
             <tr>
               <td>Gender:</td>
-              <td>Male</td>
-            </tr>
-            <tr>
-              <td>Father's name:</td>
-              <td>Abdo</td>
+              <td>$row2[gender]</td>
             </tr>
             <tr>
               <td>Class</td>
-              <td>A</td>
+              <td>$row2[class_number]</td>
             </tr>
             <tr>
               <td>Section</td>
-              <td>C</td>
-            </tr>
-            <tr>
-              <td>Adress:</td>
-              <td>Hay el amal</td>
+              <td>$row2[section]</td>
             </tr>
             <tr>
               <td>Date of birth:</td>
-              <td>15/05/2002</td>
-            </tr>
-            <tr>
-              <td>Phone number:</td>
-              <td>0675362415</td>
+              <td>$row2[date_of_birth]</td>
             </tr>
             <tr>
               <td>Email:</td>
-              <td>btrgouti@gmail.com</td>
+              <td>$row2[email]</td>
             </tr>
           </table>
+            ";
+          }
+          ?>
+          
         </div>
         
   </main>

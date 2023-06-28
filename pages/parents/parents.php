@@ -97,11 +97,12 @@ if(!isset($_SESSION['username'])){
               }
 
               //THIS FUNCTION TO GET STUDENT NAME
-              $getnamu = 'SELECT first_name FROM students WHERE parent_id =?';
+              $getnamu = 'SELECT first_name, student_id FROM students WHERE parent_id =?';
               $resnamu = $cone->prepare($getnamu);
               $resnamu->execute(array($row['parent_id']));
               while($rowii = $resnamu->fetch()){
                 $studentName = $rowii['first_name'];
+                $studentidd = $rowii['student_id'];
               }
 
             
@@ -117,7 +118,7 @@ if(!isset($_SESSION['username'])){
             <td>$studentName</td>
             <td>$row[phone_num]</td>
             <td>
-              <button><a href='viewparent.php'><img src='../photos/eye.png' alt=''></a></button>
+              <button><a href='viewparent.php?id=$row[parent_id]&&id2=$studentidd'><img src='../photos/eye.png' alt=''></a></button>
             </td>
             </tr>
             ";

@@ -191,15 +191,24 @@ while($numParent = $resparent->fetch()){
   <div class="board">
     <span>
       <p class="recent">My Meetings</p>
-      <p><a class="addmeeting" href="#">View All Meetigns</a></p>
+      <p><a class="addmeeting" href="meetings/meetings.php">View All Meetigns</a></p>
     </span>
     <div class="line2"></div>
     <div class="meeting">
       <p style="font-weight: bold;">Lastest meeting</p>
-      <p><span class="bold">Title: </span>Parent Association Meeting</p>
-      <p><span class="bold">Date: </span>July 2, 2023</p>
-      <p><span class="bold">Time: </span>6:30 PM - 8:00 PM</p>
-      <p><span class="bold">Location: </span>School Auditorium</p>
+      <?php
+      $sql = "SELECT * FROM meetings ORDER BY meeting_id DESC LIMIT 1";
+      $res = $cone->prepare($sql);
+      $res->execute();
+      while($row = $res->fetch()){
+        echo"
+        <p><span class='bold'>Title: </span>$row[title]</p>
+        <p><span class='bold'>Date: </span>$row[date]</p>
+        <p><span class='bold'>Time: </span>$row[time]</p>
+        <p><span class='bold'>Location: </span>$row[location]</p>
+        ";
+      }
+      ?>
     </div>
   </div>
   

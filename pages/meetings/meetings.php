@@ -79,42 +79,52 @@ if(!isset($_SESSION['username'])){
           </tr>
         </thead>
         <tbody class='tbody'>
-          <tr>
-            <td>1</td>
-            <td>School meeting</td>
-            <td>6/7/2023</td>
-            <td>15:00 - 16:00</td>
-            <td>Office</td>
+          <?php
+          include_once '../../db_connect.php';
+          $sql = 'SELECT * FROM meetings';
+          $res = $cone->prepare($sql);
+          $res->execute();
+          while($row = $res->fetch()){
+            echo"
+            <tr>
+            <td>$row[meeting_id]</td>
+            <td>$row[title]</td>
+            <td>$row[date]</td>
+            <td>$row[time]</td>
+            <td>$row[location]</td>
             <td>
-                <a href="viewparent.php"><button>Done</button></a>
+                <a href='deleteMeeting.php?id=$row[meeting_id]'><button>Done</button></a>
             </td>
           </tr>
+            ";
+          }
+          ?>
         </tbody>
       </table>
   </main>
   <dialog class="modal" id="modal">
     <h3>Add a new meeting</h3>
     <img src="../photos/close.png" alt="" class="close-button">
-    <form action="" method="dialog">
+    <form action="addMeeting.php" method="post">
         <table>
             <tr>
                 <td><label>Tile</label></td>
-                <td><input type="text"></td>
+                <td><input type="text" name='title'></td>
             </tr>
             <tr>
                 <td><label for="">Date</label></td>
-                <td><input type="text"></td>
+                <td><input type="text" name='date'></td>
             </tr>
             <tr>
                 <td><label for="">Time</label></td>
-                <td><input type="text"></td>
+                <td><input type="text" name='time'></td>
             </tr>
             <tr>
                 <td><label for="">Location</label></td>
-                <td><input type="text"></td>
+                <td><input type="text" name='location'></td>
             </tr>
             <tr class='btn'>
-                <td><button type="submit">Submit</button></td>
+                <td><button type="submit" name='submit'>Submit</button></td>
             </tr>
         </table>
     </form>
