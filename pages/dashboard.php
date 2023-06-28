@@ -94,57 +94,54 @@ while($numParent = $resparent->fetch()){
 
   <div class="calinder">
     <p class="recent">Recent Activities</p>
-    <div class="line2"></div>
-    <div class="noti test">
-      <div class="left">
-      <p class="date">16 May, 2017</p>
-      <p class="teacher">Jeneyfer Lopez</p>
-      <p class="message">added a new student called Mohamed</p>
+    <div class="line2"></div><?php
+    $sqlACT = 'SELECT * FROM activities ORDER BY datee DESC';
+    $resACT = $cone->prepare($sqlACT);
+    $resACT->execute();
+    while($rowACT = $resACT->fetch()){
+      $currentDateTime = date('Y-m-d H:i:s');
+      $activityDate = $rowACT['datee'];
+      $activityTime = $rowACT['timee'];
+
+      // Convert the activity date/time and current date/time to timestamps
+      $activityTimestamp = strtotime($activityDate . ' ' . $activityTime);
+      $currentTimestamp = strtotime($currentDateTime);
+
+       // Calculate the time difference in seconds
+      $timeDifference = $currentTimestamp - $activityTimestamp;
+
+      // Convert the time difference to the desired format
+      $minutes = floor($timeDifference / 60);
+      $hours = floor($timeDifference / (60 * 60));
+      $days = floor($timeDifference / (60 * 60 * 24));
+
+
+      // Output the time difference
+        // if ($days >= 1) {
+        //   echo $days . ' day(s)';
+        // } elseif ($hours >= 1) {
+        //     echo $hours . ' hour(s)';
+        // } else {
+        //     echo $minutes . ' minute(s)';
+        // }  
+    ?>
+    <div class='noti test'>
+      <div class='left'>
+      <p class='date'><?php echo $rowACT['datee']?></p>
+      <p class='teacher'><?php echo $rowACT['title']?></p>
+      <p class='message'><?php echo $rowACT['description']?></p>
       </div>
-      <div class="right">
-        <p class="exact">9 minuts ago</p>
-      </div>
-    </div>
-    <div class="noti test">
-      <div class="left">
-      <p class="date">16 May, 2017</p>
-      <p class="teacher">Jeneyfer Lopez</p>
-      <p class="message">added a new student called Mohamed</p>
-      </div>
-      <div class="right">
-        <p class="exact">12 minuts ago</p>
-      </div>
-    </div>
-    <div class="noti test">
-      <div class="left">
-      <p class="date">16 May, 2017</p>
-      <p class="teacher">Jeneyfer Lopez</p>
-      <p class="message">added a new student called Mohamed</p>
-      </div>
-      <div class="right">
-        <p class="exact">12 minuts ago</p>
-      </div>
-    </div>
-    <div class="noti test">
-      <div class="left">
-      <p class="date">16 May, 2017</p>
-      <p class="teacher">Jeneyfer Lopez</p>
-      <p class="message">added a new student called Mohamed</p>
-      </div>
-      <div class="right">
-        <p class="exact">12 minuts ago</p>
-      </div>
-    </div>
-    <div class="noti test">
-      <div class="left">
-      <p class="date">16 May, 2017</p>
-      <p class="teacher">Jeneyfer Lopez</p>
-      <p class="message">added a new student called Mohamed</p>
-      </div>
-      <div class="right">
-        <p class="exact">12 minuts ago</p>
+      <div class='right'>
+        <p class='exact'><?php if ($days >= 1) {
+          echo $days . ' day(s)';
+        } elseif ($hours >= 1) {
+            echo $hours . ' hour(s)';
+        } else {
+            echo $minutes . ' minute(s)';
+        }?></p>
       </div>
     </div>
+    <?php } ?>
   </div>
 
 

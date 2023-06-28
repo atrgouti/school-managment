@@ -227,6 +227,16 @@ if(isset($_POST['submit'])){
           $studantidu = $parentRow['student_id'];
         }
 
+    //insert meetings in meetings table
+    $currentDate = date('Y-m-d');
+    $title = 'Added new Student';
+    $decription = "You added a new student called " . $_POST['student_firstname'] . $_POST['student_lastname'];;
+    $currentTime = date('H:i:s');
+
+    $sqlActivities = 'INSERT INTO `activities`(`datee`, `title`, `description`, `timee`) VALUES (?, ?, ?, ?)';
+    $resActivities = $cone->prepare($sqlActivities);
+    $resActivities->execute(array($currentDate, $title, $decription, $currentTime));
+
 
     //insert into education table the id of student and teacher
     $education ="INSERT INTO education(student_id, teacher_id) VALUES(?, ?)";
