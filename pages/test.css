@@ -71,7 +71,7 @@ body {
 }
 
 .nav-black {
-  background-color: rgb(0, 0, 186);
+  background-color: #8c52ff;
   width: 60%;
   max-width: 480px;
   min-width: 320px;
@@ -204,7 +204,7 @@ body {
   align-items: center;
 }
 .container .home img {
-  height: 40px;
+  height: 60px;
   padding-right: 20px;
 }
 .container .home p {

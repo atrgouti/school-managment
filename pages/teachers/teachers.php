@@ -13,7 +13,8 @@ if(!isset($_SESSION['username'])){
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="teachers.css" />
-  <title>Netflix Mobile Navigation</title>
+  <link rel="icon" type="image/x-icon" href="../photos/navlogo.png">
+  <title>EduAdmin</title>
 </head>
 <body>
   
@@ -107,7 +108,7 @@ if(!isset($_SESSION['username'])){
             <td>
               <button><a href='viewTeacherInfo.php?id=$row[teacher_id]'><img src='../photos/eye.png' alt=''></a></button>
               <button><a href='modifierTeacher.php?id=$row[teacher_id]'><img src='../photos/edit.png' alt=''></a></button>
-              <button><a href='deleteTeacher.php/?id=$row[teacher_id]'><img src='../photos/delete.png' alt=''></a></button>
+              <button><a href='deleteTeacher.php?id=$row[teacher_id]'><img src='../photos/delete.png' alt=''></a></button>
             </td>
           </tr>
             ";

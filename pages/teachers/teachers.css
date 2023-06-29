@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,23 +10,22 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(204, 204, 204); 
+  background: rgb(204, 204, 204);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(97, 97, 97); 
+  background: rgb(97, 97, 97);
 }
 
-
 body {
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,15 +132,14 @@ body {
   padding-left: 20px;
 }
 
-
-.container{
+.container {
   width: 90%;
   height: 95%;
   margin-top: 38px;
   margin-bottom: 30px;
 }
 
-.container .home{
+.container .home {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,62 +147,76 @@ body {
   padding: 13px 0px;
   margin-bottom: 20px;
 }
-.container .home img{
-  height: 40px;
+.container .home img {
+  height: 60px;
   padding-right: 20px;
 }
-.container .home p{
+.container .home p {
   /* padding-top: 10px;
   padding-bottom: 10px; */
-    padding-left: 20px;
-    font-weight: bold;
+  padding-left: 20px;
+  font-weight: bold;
 }
 
-
-main{
+main {
   width: 100%;
   background-color: white;
 }
-main header{
+main header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-main header a{
+main header a {
   text-decoration: none;
   color: blue;
   margin-right: 20px;
 }
-main .all{
+main .all {
   padding-top: 20px;
   padding-left: 20px;
   font-weight: bold;
 }
-main table{
+main table {
   width: 100%;
 }
-main thead{
+main thead {
   border-bottom: 1px solid rgb(169, 169, 169);
 }
-main tbody td{
+main tbody td {
   text-align: center;
 }
-main tr th{
+main tr th {
   padding-bottom: 10px;
 }
-main tr td{
+main tr td {
   padding: 10px;
 }
-main tr td img{
+main tr td img {
   height: 40px;
 }
-main tr td button{
+main tr td button {
   background-color: transparent;
   border: none;
 }
-main tr td button img{
+main tr td button img {
   height: 20px;
 }
-main table tr{
+main table tr {
   padding: 10px 0px;
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    overflow-x: auto;
+  }
+  main tr th {
+    padding: 10px;
+  }
+  main tr td {
+    padding: 10px;
+  }
+  main table {
+    font-size: 13px;
+  }
 }

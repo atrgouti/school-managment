@@ -11,7 +11,7 @@
     <nav>
         <img src="pages/photos/ofppt.png" alt="">
         <ul>
-            <li>contact Us</li>
+            <li></li>
         </ul>
     </nav>
     <div class="container">

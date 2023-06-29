@@ -148,7 +148,7 @@ body {
   padding: 13px 0px;
 }
 .container .home img {
-  height: 40px;
+  height: 60px;
   padding-right: 20px;
 }
 .container .home p {
@@ -220,4 +220,10 @@ main .studentFrom .feilds {
   border: none;
   cursor: pointer;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  main .studentFrom .feilds {
+    width: 100%;
+  }
 }

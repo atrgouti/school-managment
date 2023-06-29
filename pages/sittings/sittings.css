@@ -177,109 +177,23 @@ main .all {
   padding-left: 20px;
   font-weight: bold;
 }
-.newMeeting {
-  padding-top: 20px;
-  font-weight: bold;
-}
-main table {
-  width: 100%;
-}
-main thead {
-  border-bottom: 1px solid rgb(169, 169, 169);
-}
-main tbody td {
-  text-align: center;
-}
-main tr th {
-  padding-bottom: 10px;
-}
-main tr td {
-  padding: 10px;
-}
-main tr td img {
-  height: 40px;
-}
-main tr td button {
-  background-color: rgb(68, 68, 255);
-  border: none;
-  border-radius: 10px;
-  padding: 7px 25px;
-}
-.tbody tr td a button {
-  text-decoration: none;
-  color: black;
-  color: white;
-  cursor: pointer;
-}
-main table tr {
-  padding: 10px 0px;
-}
 
-/* testing the dialog */
-.modal {
-  width: 40%;
-  background-color: white;
-  color: black;
-  margin: 0px auto;
-  position: relative;
-  color: black;
-  position: fixed;
-  top: 50%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-}
-.modal table {
+.sittings {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
-.modal .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.sittings .catogories {
+  width: 30%;
 }
-.modal form table tr td {
-  padding: 10px;
+.sittings .catogories ul {
+  list-style: none;
 }
-.modal form table tr td button {
-  background-color: rgb(68, 68, 255);
-  border: none;
-  border-radius: 10px;
-  padding: 7px 25px;
-  color: white;
-  cursor: pointer;
+.sittings .catogories li {
+  padding: 20px;
 }
-.modal h3 {
-  text-align: center;
-  padding-top: 20px;
-}
-.modal img {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  height: 20px;
+.sittings .edit {
+  width: 70%;
 }
 
-.close-button {
-  cursor: pointer;
-}
-
-@media screen and (max-width: 800px) {
-  main {
-    overflow-x: auto;
-  }
-  main tr th {
-    padding: 10px;
-  }
-  main tr td {
-    padding: 10px;
-  }
-  main table {
-    font-size: 13px;
-  }
-  .modal {
-    width: 90%;
-    margin-left: 5%;
-  }
+.sittings .edit .space {
+  margin-left: 20px;
 }

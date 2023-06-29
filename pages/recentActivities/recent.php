@@ -13,7 +13,8 @@ if(!isset($_SESSION['username'])){
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="recent.css" />
-  <title>Netflix Mobile Navigation</title>
+  <link rel="icon" type="image/x-icon" href="../photos/navlogo.png">
+  <title>EduAdmin</title>
 </head>
 <body>
   
@@ -69,7 +70,6 @@ if(!isset($_SESSION['username'])){
       <table  style='border-collapse: collapse' class="table">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Title</th>
             <th>Date</th>
             <th>Description</th>
@@ -101,7 +101,6 @@ if(!isset($_SESSION['username'])){
             $days = floor($timeDifference / (60 * 60 * 24));
           ?>
           <tr>
-            <td><?php echo $row['activity_id'] ?></td>
             <td><?php echo $row['title'] ?></td>
             <td><?php echo $row['datee'] ?></td>
             <td><?php echo $row['description'] ?></td>

@@ -13,7 +13,8 @@ if(!isset($_SESSION['username'])){
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="meetings.css" />
-  <title>Netflix Mobile Navigation</title>
+  <link rel="icon" type="image/x-icon" href="../photos/navlogo.png">
+  <title>EduAdmin</title>
 </head>
 <body>
   
@@ -70,7 +71,6 @@ if(!isset($_SESSION['username'])){
       <table  style='border-collapse: collapse' class="table">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Title</th>
             <th>Date</th>
             <th>Time</th>
@@ -87,7 +87,6 @@ if(!isset($_SESSION['username'])){
           while($row = $res->fetch()){
             echo"
             <tr>
-            <td>$row[meeting_id]</td>
             <td>$row[title]</td>
             <td>$row[date]</td>
             <td>$row[time]</td>

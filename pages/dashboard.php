@@ -37,7 +37,8 @@ while($numParent = $resparent->fetch()){
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="test.css" />
-  <title>Netflix Mobile Navigation</title>
+  <link rel="icon" type="image/x-icon" href="./photos/navlogo.png">
+  <title>EduAdmin</title>
 </head>
 
 <body>
@@ -84,11 +85,11 @@ while($numParent = $resparent->fetch()){
 
   <div class="totalearnings">
     <span>
-      <img src="./photos/money.png" alt="">
-      <p>Earnings</p>
+      <img src="./photos/admin.png" alt="">
+      <p>Admins</p>
     </span>
     <div class="line"></div>
-    <h1 class="nums" data-val="200">275$</h1>
+    <h1 class="nums" data-val="1">0</h1>
   </div>
 
 
@@ -234,6 +235,7 @@ while($numParent = $resparent->fetch()){
           <li><a href="./parents/parents.php">Parents</a></li>
           <li><a href="./meetings/meetings.php">Meetings</a></li>
           <li><a href="./recentActivities/recent.php">Recent</a></li> 
+          <li><a href="./sittings/sittings.php">Sittings</a></li> 
           <li><a href="../logout.php">Logout</a></li>
         </ul>
       </div>
