@@ -14,6 +14,23 @@ if(!isset($_SESSION['username'])){
     crossorigin="anonymous" />
   <link rel="stylesheet" href="sittings.css" />
   <link rel="icon" type="image/x-icon" href="../photos/navlogo.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+        // Function to load content from the server
+        function loadContent(url) {
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function(response) {
+                    // Update the content of a specific element on the page
+                    $('#content').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
   <title>EduAdmin</title>
 </head>
 <body>
@@ -70,14 +87,14 @@ if(!isset($_SESSION['username'])){
       <div class="sittings">
         <div class="catogories">
           <ul>
-            <li style='font-weight: bold;'>Add New Admin</li>
-            <li>Change Admin Password</li>
-            <li>Logout</li>
+            <li><a href="#" onclick="loadContent('addAdmin.php'); return false;">Add New Admin</a></li>
+            <li><a href="#" onclick="loadContent('changePass.php'); return false;">Change Admin Password</a></li>
+            <li><a href="#" onclick="loadContent('page3.php'); return false;">Logout</a></li>
           </ul>
         </div>
-        <div class="edit">
+        <div class="edit" id="content">
           <div class="space">
-            <h2>Add new Admin</h2>
+
           </div>
         </div>
       </div>
@@ -89,7 +106,7 @@ if(!isset($_SESSION['username'])){
 
 
 
-  <script src="recent.js"></script>
+  <script src="sittings.js"></script>
 </body>
 
 </html>

@@ -188,7 +188,11 @@ main .all {
   list-style: none;
 }
 .sittings .catogories li {
-  padding: 20px;
+  padding: 15%;
+}
+.sittings .catogories li a {
+  text-decoration: none;
+  color: red;
 }
 .sittings .edit {
   width: 70%;
