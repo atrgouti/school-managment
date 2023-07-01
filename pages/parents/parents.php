@@ -51,6 +51,7 @@ if(!isset($_SESSION['username'])){
           <li><a href="parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="../recentActivities/recent.php">Recent</a></li> 
+          <li><a href="../sittings/sittings.php">Sittings</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -85,11 +86,13 @@ if(!isset($_SESSION['username'])){
         </thead>
         <tbody class='tbody'>
           <?php
+          //selecting everything from parents table
           include_once '../../db_connect.php';
           $sqlll = "SELECT * FROM parents";
           $res = $cone->prepare($sqlll);
           $res->execute();
           while($row = $res->fetch()){
+              //selecting the number of students that have the same father based on the id of the father
               $sqlstudent = 'SELECT COUNT(*) AS student FROM students WHERE parent_id=?';
               $resstudent = $cone->prepare($sqlstudent);
               $resstudent->execute(array($row['parent_id']));

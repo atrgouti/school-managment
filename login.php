@@ -17,15 +17,12 @@
     <div class="container">
         <form action="" method="post">
             <p>Sign in to your account</p>
-            <label for="">Email Adress</label>
+            <label for="">User Name</label>
             <input type="text" name="email">
             <label for="">Password</label>
             <input type="password" name="password">
             <select name="select_option" id="">
                 <option value="admin">Admin</option>
-                <option value="teacher">Teacher</option>
-                <option value="student">Student</option>
-                <option value="parent">Parent</option>
             </select>
             <button name='submit' type="submit">Sign in</button>
         </form>
@@ -33,6 +30,7 @@
 
 
     <?php
+    //checking if all feilds are feild and then sending a query to the database to check
     if(isset($_POST['submit'])){
         if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])){
             if($_POST['select_option'] === "admin"){

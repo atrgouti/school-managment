@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../login.php");
 }
+//getting the number of teachers are in the teachers table based on counting columns
 include_once '../db_connect.php';
 $sqlteacher = 'SELECT COUNT(*) AS teacher FROM teachers';
 $resTeacher = $cone->prepare($sqlteacher);
@@ -11,6 +12,7 @@ while($numteachers = $resTeacher->fetch()){
   $_SESSION['numTeacher'] = $numteachers['teacher'] - 1;
 }
 
+//count how maney students are in students table
 include_once '../db_connect.php';
 $sqlstudent = 'SELECT COUNT(*) AS student FROM students';
 $resstudent = $cone->prepare($sqlstudent);
@@ -19,7 +21,7 @@ while($numstudent = $resstudent->fetch()){
   $_SESSION['numStudent'] = $numstudent['student'];
 }
 
-
+//count how maney parents are in parents table
 include_once '../db_connect.php';
 $sqlParent = 'SELECT COUNT(*) AS parent FROM parents';
 $resparent = $cone->prepare($sqlParent);
@@ -27,6 +29,16 @@ $resparent->execute();
 while($numParent = $resparent->fetch()){
   $_SESSION['numParent'] = $numParent['parent'];
 }
+
+//count how maney admins are in admin table
+include_once '../db_connect.php';
+$sqlAdmin = 'SELECT COUNT(*) AS admins FROM admin';
+$resAdmin = $cone->prepare($sqlAdmin);
+$resAdmin->execute();
+while($numAdmin = $resAdmin->fetch()){
+  $_SESSION['numAdmin'] = $numAdmin['admins'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,7 +101,7 @@ while($numParent = $resparent->fetch()){
       <p>Admins</p>
     </span>
     <div class="line"></div>
-    <h1 class="nums" data-val="1">0</h1>
+    <h1 class="nums" data-val="<?php echo $_SESSION['numAdmin'] ?>">0</h1>
   </div>
 
 
@@ -99,6 +111,7 @@ while($numParent = $resparent->fetch()){
       <p><a href="recentActivities/recent.php">View All Activities</a></p>
     </div>
     <div class="line2"></div><?php
+    //select activities from activities table by the newest
     $sqlACT = 'SELECT * FROM activities ORDER BY activity_id DESC LIMIT 15';
     $resACT = $cone->prepare($sqlACT);
     $resACT->execute();
@@ -191,6 +204,7 @@ while($numParent = $resparent->fetch()){
     <div class="meeting">
       <p style="font-weight: bold;">Lastest meeting</p>
       <?php
+      //selecting the latest meeting in the table
       $sql = "SELECT * FROM meetings ORDER BY meeting_id DESC LIMIT 1";
       $res = $cone->prepare($sql);
       $res->execute();

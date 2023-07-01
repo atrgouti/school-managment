@@ -5,6 +5,13 @@ if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
 }
 
+$studentsql = 'SELECT first_name FROM students WHERE student_id=?';
+$studentres = $cone->prepare($studentsql);
+$studentres->execute(array($_GET['id']));
+while($row = $studentres->fetch()){
+  $_SESSION['studiName'] = $row['first_name'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +60,7 @@ if(!isset($_SESSION['username'])){
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="../recentActivities/recent.php">Recent</a></li> 
+          <li><a href="../sittings/sittings.php">Sittings</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -67,7 +75,7 @@ if(!isset($_SESSION['username'])){
   <main>
         <header>
         <div class="mix" style='display: flex; justify-content: space-between; align-items: center;'>
-          <p class="all">Bilal Details</p>
+          <p class="all"><?php echo $_SESSION['studiName'] ?> information</p>
           <a href="./students.php" class='return'>Return</a>
         </div>
         <hr>

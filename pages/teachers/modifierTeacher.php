@@ -52,6 +52,7 @@ if(!isset($_SESSION['username'])){
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php ">Meetings</a></li>
           <li><a href="../recentActivities/recent.php">Recent</a></li> 
+          <li><a href="../sittings/sittings.php">Sittings</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -75,6 +76,7 @@ if(!isset($_SESSION['username'])){
             <?php
                 include_once '../../db_connect.php';
                 $id = $_GET['id'];
+                //selecting everything from teachers table
                 $sql = 'SELECT * FROM teachers WHERE teacher_id=?';
                 $res = $cone->prepare($sql);
                 $res->execute(array($id));
@@ -146,7 +148,7 @@ if(!isset($_SESSION['username'])){
 <?php
 if(isset($_POST['submit'])){
       include_once '../../db_connect.php';
-      // $idzaka = $_GET['id'];
+      //updating the teachers table with the new form data
       $sql = "UPDATE teachers SET first_name =?, last_name =?, class_number =?, section =? , gender =?, date_of_birth =?, subject=?, email=?, phone_number=?, adress =?, joining_date =?, account_password = ? WHERE teacher_id =?";
       $res = $cone->prepare($sql);
 

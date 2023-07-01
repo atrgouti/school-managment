@@ -3,6 +3,15 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
 }
+
+//getting the name of the father using the id in the url
+include_once '../../db_connect.php';
+$parentsql = 'SELECT father_name FROM parents WHERE parent_id=?';
+$parentres = $cone->prepare($parentsql);
+$parentres->execute(array($_GET['id']));
+while($row = $parentres->fetch()){
+  $_SESSION['parentnom'] = $row['father_name'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,20 +60,21 @@ if(!isset($_SESSION['username'])){
           <li><a href="parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="../recentActivities/recent.php">Recent</a></li> 
+          <li><a href="../sittings/sittings.php">Sittings</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- start working on the page -->
+
   <div class="home">
     <p>Home - Parent Details</p>
     <img src="../photos/ofppt.png" alt="">
   </div>
   <main>
         <header>
-        <p class="all">Bilal Details</p>
+        <p class="all"><?php echo  $_SESSION['parentnom'] ?> Details</p>
         <hr>
         </header>
         <div class="infos">
@@ -117,7 +127,7 @@ if(!isset($_SESSION['username'])){
         </div>
 
         <header>
-        <p class="all">Bilal's Kid Details</p>
+        <p class="all"><?php echo $_SESSION['parentnom']  ?>'s Kid Details</p>
         <hr>
         </header>
 

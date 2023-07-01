@@ -52,6 +52,7 @@ if(!isset($_SESSION['username'])){
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="../recentActivities/recent.php">Recent</a></li> 
+          <li><a href="../sittings/sittings.php">Sittings</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -183,7 +184,7 @@ if(!isset($_SESSION['username'])){
 
             ?>
                 
-                <button class="submit" type='submit' name='submit'>Add Student</button>
+                <button class="submit" type='submit' name='submit'>Modify Student</button>
                 <button onclick="resetAllInputs()"  type="reset" class="reset">Reset</button>
             </form>
         </div>

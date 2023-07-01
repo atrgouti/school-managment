@@ -3,6 +3,14 @@ session_start();
 if(!isset($_SESSION['username'])){
   header("location: ../../login.php");
 }
+include "../../db_connect.php";
+//count how maney admins are in admin table
+$sqlAdmin = 'SELECT COUNT(*) AS admins FROM admin';
+$resAdmin = $cone->prepare($sqlAdmin);
+$resAdmin->execute();
+while($numAdmin = $resAdmin->fetch()){
+  $_SESSION['numAdmin'] = $numAdmin['admins'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,22 +23,37 @@ if(!isset($_SESSION['username'])){
   <link rel="stylesheet" href="sittings.css" />
   <link rel="icon" type="image/x-icon" href="../photos/navlogo.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-        // Function to load content from the server
-        function loadContent(url) {
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function(response) {
-                    // Update the content of a specific element on the page
-                    $('#content').html(response);
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
+    <style>
+        .account{
+            display: flex;
+            justify-content: space_between;
+            align-items: end;
+            width: 50%;
+            margin-top:10px;
+            margin-bottom: 20px;
         }
-    </script>
+        .account input{
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .account button{
+            padding: 10px 20px;
+            background-color: #8C52FF;
+            color: white;
+            border: 1px solid #8C52FF;
+            cursor: pointer;
+        }
+        form input{
+            padding:10px 20px;
+        }
+        form button{
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            margin-top:20px;
+            cursor: pointer;
+        }
+    </style>
   <title>EduAdmin</title>
 </head>
 <body>
@@ -68,6 +91,7 @@ if(!isset($_SESSION['username'])){
           <li><a href="../parents/parents.php">Parents</a></li>
           <li><a href="../meetings/meetings.php">Meetings</a></li>
           <li><a href="recent.php">Recent</a></li> 
+          <li><a href="sittings.php">Sittings</a></li> 
           <li><a href="../../logout.php">Logout</a></li>
         </ul>
       </div>
@@ -87,15 +111,49 @@ if(!isset($_SESSION['username'])){
       <div class="sittings">
         <div class="catogories">
           <ul>
-            <li><a href="#" onclick="loadContent('addAdmin.php'); return false;">Add New Admin</a></li>
-            <li><a href="#" onclick="loadContent('changePass.php'); return false;">Change Admin Password</a></li>
-            <li><a href="#" onclick="loadContent('page3.php'); return false;">Logout</a></li>
+            <li><a href="sittings.php">Add New Admin</a></li>
+            <li><a href="../../logout.php">Logout</a></li>
           </ul>
         </div>
         <div class="edit" id="content">
-          <div class="space">
-
-          </div>
+        <h1><?php echo $_SESSION['numAdmin']?>Avaliable Admin Acounts</h1>
+    <?php
+    $sql = 'SELECT * FROM admin';
+    $res = $cone->prepare($sql);
+    $res->execute();
+    while($row = $res->fetch()){
+        echo "
+        <div class='account'>
+        <div class='userName'>
+            <label for=''>User Name</label>
+            <input type='text' value='$row[email]' readonly>
+        </div>
+        <div class='password'>
+            <label for=''>Password</label>
+            <input type='text' name='' value='$row[passcode]' id='' readonly>
+        </div>
+        <a href='deleteAdmin.php?id=$row[admin_id]'><button>DELETE</button></a>
+    </div>
+        ";
+    }
+    ?>
+   
+    <h1>Add New Admin Account</h1>
+    <form action='ajouter.php' method='post'>
+        <table>
+            <tr>
+                <td><label for="">Username</label></td>
+                <td><input type="text" name='username'></td>
+            </tr>
+            <tr>
+                <td><label for="">Password</label></td>
+                <td><input type="text" name='passcode'></td>
+            </tr>
+            <tr>
+                <td><button type='submit'>Add Admin</button></td>
+            </tr>
+        </table>
+    </form>
         </div>
       </div>
       
