@@ -117,10 +117,20 @@ while($numAdmin = $resAdmin->fetch()){
         </div>
         <div class="edit" id="content">
         <h1><?php echo $_SESSION['numAdmin']?>Avaliable Admin Acounts</h1>
+        <div class='account'>
+        <div class='userName'>
+            <label for=''>User Name</label>
+            <input type='text' value='admin' readonly>
+        </div>
+        <div class='password'>
+            <label for=''>Password</label>
+            <input type='text' name='' value='admin' id='' readonly>
+        </div>
+        </div>
     <?php
-    $sql = 'SELECT * FROM admin';
+    $sql = 'SELECT * FROM admin WHERE email != ?';
     $res = $cone->prepare($sql);
-    $res->execute();
+    $res->execute(array("admin"));
     while($row = $res->fetch()){
         echo "
         <div class='account'>
