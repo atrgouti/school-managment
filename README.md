@@ -1,7 +1,6 @@
 # EduAdmin
 
-EduAdmin is a robust School Management System designed to simplify administrative tasks for school administrators. The intuitive dashboard enhances user management, facilitates meeting scheduling, and streamlines teacher assignments to classes. Throughout the development of EduAdmin, the project creator gained valuable insights into web development, database querying, and advanced SQL concepts.
-https://github.com/atrgouti/school-managment/tree/main
+EduAdmin is a robust School Management System designed to simplify administrative tasks for school administrators. The intuitive dashboard enhances user management, facilitates meeting scheduling, and streamlines teacher assignments to classes. Throughout the development of EduAdmin.
 ## 🚀 Features
 
 ### User-friendly Dashboard
